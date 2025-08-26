@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevUp | High-Performance Developers for the AI Era</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+      background-color: #f9fbfc;
+      color: #3399cc;
+    }
+
+    header, section, footer {
+      padding: 4rem 2rem;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    header#hero {
+      text-align: center;
+      background: linear-gradient(to right, #e6f3fb, #ffffff);
+      padding: 6rem 2rem;
+      border-bottom: 4px solid #3399cc22;
+    }
+
+    .logo {
+      max-width: 200px;
+      margin-bottom: 1rem;
+      animation: fadein 1.5s ease-in;
+    }
+
+    h1, h2 {
+      color: #3399cc;
+    }
+
+    h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background-color: #3399cc;
+      margin: 10px auto 20px;
+      border-radius: 2px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: disc inside;
+      padding-left: 0;
+    }
+
+    .cta {
+      display: inline-block;
+      background-color: #0077cc;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 119, 204, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .cta:hover {
+      transform: scale(1.05);
+    }
+
+    section {
+      animation: fadein 0.7s ease-in;
+    }
+
+    section:nth-of-type(even) {
+      background-color: #eef7fb;
+      border-top: 2px dashed #3399cc22;
+    }
+
+    .founders {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .founder {
+      flex: 1 1 200px;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
+    }
+
+    .founder img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+      border: 4px solid #3399cc33;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 2rem;
+      background-color: #e6f3fb;
+      color: #3399cc;
+    }
+
+    @keyframes fadein {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header, section, footer {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="hero">
+    <img src="DevUp_Logo.png" alt="DevUp Logo" class="logo" />
+    <h1>High-Performance Developers for the AI Era</h1>
+    <p>Without burnout. With purpose.</p>
+    <a href="#contact" class="cta">Join the Movement</a>
+  </header>
+
+  <section id="about">
+    <h2>About DevUp</h2>
+    <p>DevUp is a pioneering startup methodology designed to equip developers for the challenges of the AI era — blending technical mastery, emotional intelligence, and strategic career acceleration.</p>
+  </section>
+
+  <section id="problems">
+    <h2>Problems We Solve</h2>
+    <ul>
+      <li>Oversupply of junior devs with outdated or shallow training</li>
+      <li>Shortage of emotionally resilient and adaptable professionals</li>
+      <li>High rates of burnout and stagnation in tech careers</li>
+    </ul>
+  </section>
+
+  <section id="solution">
+    <h2>Our Solution</h2>
+    <p>A complete training ecosystem powered by our <strong>Dev Hero</strong> platform. It blends AI-powered tools, self-awareness practices, and career design strategies for sustainable high-performance.</p>
+    <p>Components include: Daily Monitor, Career Debugger, MasterClasses, Expert Link, Recruiter Link, and more.</p>
+  </section>
+
+  <section id="how">
+    <h2>How It Works</h2>
+    <p>Through our platform, users access personalized content, interactive dashboards, strategic planning tools, and one-click access to experts — all designed to empower learning and fulfillment.</p>
+  </section>
+
+  <section id="impact">
+    <h2>Impact</h2>
+    <p>Our beta cohort saw 100% career upgrades in < 6 months. Over 1,500 developers trained by our team. Grounded in PhD-level research and real-life mentorship programs.</p>
+  </section>
+
+  <section id="partners">
+    <h2>Partners & Recognition</h2>
+    <p>Incubated within UFRJ’s LabIS. Powered by CoDe Conhecimento. Featured at Rio Innovation Week. Our platform is 100% proprietary.</p>
+  </section>
+
+  <section id="founders">
+    <h2>Founders</h2>
+    <div class="founders">
+      <div class="founder">
+        <img src="henrique.jpg" alt="Henrique Rabelo de Andrade" />
+        <h3>Henrique Rabelo de Andrade</h3>
+        <p>Researcher at COPPE/UFRJ. 20+ years in EdTech & AI. Creator of DevUp. Led public innovation projects and trained thousands of developers worldwide.</p>
+      </div>
+      <div class="founder">
+        <img src="pedro.jpg" alt="Pedro Marins" />
+        <h3>Pedro Marins</h3>
+        <p>Developer and educator with 500K+ students. Co-founder of CoDe Conhecimento. Front-end teaching award winner in Latin America.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <p>Ready to invest, collaborate, or grow with us?</p>
+    <a href="mailto:contact@devup.ai" class="cta">Contact Us</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 DevUp. All rights reserved.</p>
+  </footer>
+</body>
+</html>
