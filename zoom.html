@@ -8,7 +8,7 @@
     :root {
       --devup-bg: #f5fbff;      /* fundo bem claro */
       --devup-navy: #031b33;    /* azul-marinho do texto */
-      --devup-accent: #00b5ff;  /* azul seta/logomarca */
+      --devup-accent: #00b5ff;  /* azul destaque */
       --devup-muted: #6b7280;   /* cinza para detalhes */
       --devup-radius: 16px;
     }
@@ -31,7 +31,7 @@
     }
 
     .card {
-      max-width: 520px;
+      max-width: 800px;
       width: 100%;
       background: #ffffff;
       border-radius: var(--devup-radius);
@@ -95,6 +95,36 @@
       font-weight: 600;
     }
 
+    /* --- título da seção de inscrição --- */
+    .signup-title {
+      margin-top: 40px;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--devup-navy);
+      text-align: center;
+      margin-bottom: 22px;
+      letter-spacing: -0.2px;
+    }
+
+    .signup-title span {
+      color: var(--devup-accent);
+    }
+
+    /* --- embed --- */
+    .embed-wrapper {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(3, 27, 51, 0.06);
+      background: #f9fbff;
+    }
+
+    .embed-wrapper iframe {
+      display: block;
+      width: 100%;
+      min-height: 620px;
+      border: none;
+    }
+
     @media (max-width: 480px) {
       .card {
         padding: 24px 18px;
@@ -102,6 +132,14 @@
 
       h1 {
         font-size: 1.25rem;
+      }
+
+      .signup-title {
+        font-size: 1.15rem;
+      }
+
+      .embed-wrapper iframe {
+        min-height: 720px;
       }
     }
   </style>
@@ -113,7 +151,7 @@
       Zoom DevUp!
     </div>
 
-    <h1>Nenhum evento ao vivo agora</h1>
+    <h1>Nenhum evento ao vivo acontecendo agora</h1>
 
     <p>
       No momento, não temos nenhum evento acontecendo no
@@ -121,7 +159,22 @@
     </p>
 
     <div class="info-box">
-      <strong>Dica:</strong> retorne a este link no horário do evento para acessar a atividade.
+      <strong>Dica:</strong> retorne a este link no horário do evento que você se inscreveu para acessar a sala do Zoom onde acontecerá a atividade.
+    </div>
+
+    <!-- Título da inscrição -->
+    <p class="signup-title">
+      Caso ainda não esteja inscrito, preencha o formulário abaixo para <span>participar do workshop gratuito!</span>
+    </p>
+
+    <!-- Embed -->
+    <div class="embed-wrapper">
+      <iframe
+        src="https://calendarlink.com/event/qIrgX"
+        title="Inscrição para o próximo evento DevUp!"
+        loading="lazy"
+        allowfullscreen
+      ></iframe>
     </div>
   </main>
 </body>
