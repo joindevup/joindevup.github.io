@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Redirecionando para WhatsApp...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --devup-bg: #f5fbff;
+      --devup-navy: #031b33;
+      --devup-accent: #00b5ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #ffffff 0, var(--devup-bg) 60%, #e6f3ff 100%);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--devup-navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      min-height: 100vh;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    /* animação suave */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--devup-navy);
+      margin-bottom: 26px;
+      letter-spacing: -0.5px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    img {
+      max-width: 300px;
+      margin-bottom: 24px;
+      border-radius: 12px;
+      animation: fadeIn 1.2s ease-out;
+    }
+
+    p {
+      font-size: 1.15rem;
+      margin-bottom: 16px;
+      line-height: 1.55;
+      animation: fadeIn 1.4s ease-out;
+    }
+
+    a {
+      color: var(--devup-accent);
+      font-weight: 600;
+      text-decoration: none;
+    }
+  </style>
+
+  <script>
+    // redirecionamento automático
+    setTimeout(function() {
+      window.location.href = "https://api.whatsapp.com/send/?phone=5521997521616&text=Fala%20Pedro!";
+    }, 1400);
+  </script>
+</head>
+
+<body>
+
+  <h1>DevUp!</h1>
+
+  <img 
+    src="https://img.freepik.com/premium-vector/happy-boy-working-computer-cartoon-icon-illustration-people-technology-icon-concept_138676-2117.jpg" 
+    alt="Pessoa usando notebook">
+
+  <p>Você está sendo redirecionado para o WhatsApp...</p>
+
+  <p>
+    Caso a página não carregue automaticamente,<br>
+    <a href="https://api.whatsapp.com/send/?phone=5521997521616&text=Fala%20Pedro!">clique aqui para acessar.</a>
+  </p>
+
+</body>
+</html>
