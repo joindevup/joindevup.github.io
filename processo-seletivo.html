@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Processo Seletivo DevUp!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --devup-bg: #f5fbff;
+      --devup-navy: #031b33;
+      --devup-accent: #00b5ff;
+      --devup-muted: #6b7280;
+      --devup-radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #ffffff 0, var(--devup-bg) 60%, #e6f3ff 100%);
+      color: var(--devup-navy);
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      letter-spacing: -0.4px;
+    }
+
+    header p {
+      font-size: 1rem;
+      color: var(--devup-muted);
+      line-height: 1.6;
+      max-width: 640px;
+      margin: 0 auto 6px;
+    }
+
+    header p strong {
+      color: var(--devup-navy);
+    }
+
+    .pill {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(0, 181, 255, 0.08);
+      color: var(--devup-accent);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: var(--devup-radius);
+      box-shadow:
+        0 18px 45px rgba(3, 27, 51, 0.1),
+        0 0 0 1px rgba(3, 27, 51, 0.04);
+      padding: 24px 22px 28px;
+      margin-bottom: 40px;
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .card ul {
+      margin-left: 18px;
+      margin-top: 6px;
+      color: var(--devup-muted);
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
+
+    form {
+      background: #ffffff;
+      border-radius: var(--devup-radius);
+      box-shadow:
+        0 18px 45px rgba(3, 27, 51, 0.1),
+        0 0 0 1px rgba(3, 27, 51, 0.04);
+      padding: 26px 22px 28px;
+      margin-bottom: 60px;
+    }
+
+    form h2 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    form p.subtitle {
+      font-size: 0.96rem;
+      color: var(--devup-muted);
+      margin-bottom: 20px;
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .field small {
+      display: block;
+      color: var(--devup-muted);
+      font-size: 0.8rem;
+      margin-bottom: 4px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px 11px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--devup-navy);
+      outline: none;
+      background: #f9fafb;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--devup-accent);
+      box-shadow: 0 0 0 3px rgba(0, 181, 255, 0.18);
+      background: #ffffff;
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .options-group {
+      display: grid;
+      gap: 6px;
+      margin-top: 2px;
+      font-size: 0.95rem;
+      color: var(--devup-muted);
+    }
+
+    .options-group label {
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .options-group input[type="radio"],
+    .options-group input[type="checkbox"] {
+      accent-color: var(--devup-accent);
+    }
+
+    button[type="submit"] {
+      margin-top: 6px;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: none;
+      background: var(--devup-accent);
+      color: #ffffff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 30px rgba(0, 181, 255, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 40px rgba(0, 181, 255, 0.4);
+      background: #0095d6;
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 20px rgba(0, 181, 255, 0.35);
+    }
+
+    button span.icon {
+      font-size: 1.1rem;
+    }
+
+    /* Floater WhatsApp */
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      color: var(--devup-navy);
+      font-size: 0.9rem;
+      z-index: 50;
+    }
+
+    .whatsapp-float .icon-circle {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #25d366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .whatsapp-float span.label {
+      white-space: nowrap;
+    }
+
+    /* Mensagem de sucesso */
+    .success-box {
+      background: #ffffff;
+      border-radius: var(--devup-radius);
+      box-shadow:
+        0 18px 45px rgba(3, 27, 51, 0.12),
+        0 0 0 1px rgba(3, 27, 51, 0.04);
+      padding: 32px 26px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .success-box h2 {
+      margin-bottom: 14px;
+      font-size: 1.6rem;
+      color: var(--devup-navy);
+    }
+
+    .success-box p {
+      color: var(--devup-muted);
+      margin-bottom: 22px;
+      line-height: 1.5;
+    }
+
+    .success-box a {
+      background: var(--devup-accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-block;
+      box-shadow: 0 10px 30px rgba(0, 181, 255, 0.35);
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 18px 14px 80px;
+      }
+
+      .card,
+      form {
+        padding: 18px 14px 22px;
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      .whatsapp-float span.label {
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Script para mensagem de sucesso -->
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const isSuccess = params.get("success");
+
+      if (isSuccess) {
+        document.body.innerHTML = `
+          <div class="container">
+            <div class="success-box">
+              <h2>Formulário enviado com sucesso! 🎉</h2>
+              <p>
+                Obrigado por enviar suas informações!<br>
+                Nossa equipe vai analisar tudo com carinho e falar com você pelo WhatsApp
+                nas próximas horas.
+              </p>
+              <a href="?">Enviar outra resposta</a>
+            </div>
+          </div>
+        `;
+      }
+    </script>
+
+    <header>
+      <h1>Processo Seletivo DevUp!</h1>
+      <br/><br/>
+        <p>
+        Este formulário nos ajuda a entender o seu momento profissional e avaliar
+        se o DevUp é o melhor passo para você agora.
+      </p>
+      <p>
+        <strong>Só entra quem realmente conseguimos ajudar.</strong> Isso cria uma
+        comunidade mais forte, com profissionais comprometidos e dispostos a crescer juntos.
+      </p>
+      <p>
+        Vamos responder tudo por WhatsApp: se não for o momento ideal,
+        indicamos outros caminhos; se for o seu momento, convidamos você
+        para uma conversa ao vivo com um de nossos mentores.
+      </p>
+      <div class="pill">Processo seletivo com curadoria humana</div>
+    </header>
+
+    <section class="card">
+      <h2>Como funciona o processo seletivo</h2>
+      <ul>
+        <li><strong>1ª etapa:</strong> você responde a este questionário online com calma e sinceridade.</li>
+        <li><strong>2ª etapa:</strong> se enxergarmos alinhamento com o DevUp, convidamos você para uma conversa ao vivo com um mentor.</li>
+        <li>A participação no processo é gratuita. Você só investe no programa se, ao final, confirmar sua matrícula.</li>
+      </ul>
+    </section>
+
+    <form action="https://formspree.io/f/myzqgnpo?success=true" method="POST">
+      <h2>Questionário do processo seletivo</h2>
+      <p class="subtitle">
+        Leva poucos minutos. Responda com sinceridade para que possamos avaliar se o DevUp é realmente o melhor próximo passo para você.
+      </p>
+
+      <!-- E-mail -->
+      <div class="field">
+        <label for="email">E-mail<span class="required"></span></label>
+        <small>Use o e-mail que você mais acompanha. É por ele que mandaremos os próximos passos.</small>
+        <input type="email" id="email" name="E-mail" required />
+      </div>
+
+      <!-- Nome completo -->
+      <div class="field">
+        <label for="nome">Nome completo</label>
+        <small>Como você gostaria de ser chamado(a) pela nossa equipe.</small>
+        <input type="text" id="nome" name="Nome completo" required />
+      </div>
+
+      <!-- WhatsApp -->
+      <div class="field">
+        <label for="whatsapp">Número de WhatsApp</label>
+        <small>Inclua DDD. Ex: (21) 99999-0000. É por aqui que vamos falar com você.</small>
+        <input type="text" id="whatsapp" name="Número de WhatsApp" required />
+      </div>
+
+      <!-- Momento profissional -->
+      <div class="field">
+        <label>Me fale sobre seu momento profissional</label>
+        <small>
+          Se você for cientista de dados, analista, QA, etc., pode escolher a opção que mais se aproxima.
+          A ideia é entendermos onde você se enxerga hoje.
+        </small>
+        <div class="options-group">
+          <label><input type="radio" name="Momento profissional" value="Sou dev júnior" required /> Sou dev júnior</label>
+          <label><input type="radio" name="Momento profissional" value="Sou dev pleno" /> Sou dev pleno</label>
+          <label><input type="radio" name="Momento profissional" value="Sou dev sênior" /> Sou dev sênior</label>
+          <label><input type="radio" name="Momento profissional" value="Estou buscando minha primeira vaga como dev" /> Estou buscando minha primeira vaga como dev</label>
+        </div>
+      </div>
+
+      <!-- Como atua hoje -->
+      <div class="field">
+        <label for="atuacao">Como você atua hoje na área de desenvolvimento?</label>
+        <small>
+          Fale da empresa (ou projetos) em que atua, o que você faz no dia a dia e quais são suas principais responsabilidades.
+          Se estiver sem trabalho no momento, conte um pouco da sua experiência recente.
+        </small>
+        <textarea id="atuacao" name="Como atua hoje" required></textarea>
+      </div>
+
+      <!-- Principal motivo virar dev -->
+      <div class="field">
+        <label>Qual foi o principal motivo para você tomar a decisão de seguir a carreira dev?</label>
+        <small>
+          Escolha o motivo que mais pesa hoje para você, mesmo que vários deles façam sentido.
+        </small>
+        <div class="options-group">
+          <label><input type="radio" name="Motivo para virar dev" value="Salários atrativos" required /> Salários atrativos</label>
+          <label><input type="radio" name="Motivo para virar dev" value="Estabilidade na carreira" /> Estabilidade na carreira</label>
+          <label><input type="radio" name="Motivo para virar dev" value="Poder trabalhar de casa" /> Poder trabalhar de casa</label>
+          <label><input type="radio" name="Motivo para virar dev" value="Poder trabalhar com horário flexível" /> Poder trabalhar com horário flexível</label>
+          <label><input type="radio" name="Motivo para virar dev" value="Possibilidade de migrar para outro país" /> Possibilidade de migrar para outro país</label>
+          <label><input type="radio" name="Motivo para virar dev" value="Ganhar em dólar morando no Brasil" /> Ganhar em dólar morando no Brasil</label>
+          <label><input type="radio" name="Motivo para virar dev" value="Interesse pessoal por tecnologia" /> Interesse pessoal por tecnologia</label>
+        </div>
+      </div>
+
+      <!-- Meta próximos 6 meses -->
+      <div class="field">
+        <label for="meta">Qual sua meta para os próximos 6 meses?</label>
+        <small>
+          Não existe resposta certa aqui! Pode ser mudar de empresa, ser promovido, mudar de área,
+          ganhar mais, trabalhar remoto, ganhar em dólar, se mudar pra outro país, etc.
+          Quanto mais específico você for, melhor conseguimos te ajudar.
+        </small>
+        <textarea id="meta" name="Meta para os próximos 6 meses" required></textarea>
+      </div>
+
+      <!-- Comprometimento -->
+      <div class="field">
+        <label>De 1 a 5, o quanto você está comprometido em conquistar essa meta nos próximos 6 meses?</label>
+        <small>
+          Pense em compromisso real: tempo, energia e foco que você está disposto(a) a colocar para mudar sua realidade.
+        </small>
+        <div class="options-group">
+          <label><input type="radio" name="Comprometimento (1 a 5)" value="1" required /> 1 – Ainda estou só curioso(a)</label>
+          <label><input type="radio" name="Comprometimento (1 a 5)" value="2" /> 2</label>
+          <label><input type="radio" name="Comprometimento (1 a 5)" value="3" /> 3</label>
+          <label><input type="radio" name="Comprometimento (1 a 5)" value="4" /> 4</label>
+          <label><input type="radio" name="Comprometimento (1 a 5)" value="5" /> 5 – Vou fazer o que for preciso</label>
+        </div>
+      </div>
+
+      <!-- Dificuldades -->
+      <div class="field">
+        <label for="dificuldades">Quais suas maiores dificuldades hoje para ter um Upgrade na Carreira Dev?</label>
+        <small>
+          Pode falar de tudo: dificuldades técnicas, soft skills (comunicação, liderança, organização),
+          disciplina para estudar, networking, medo de entrevistas, síndrome do impostor, etc.
+        </small>
+        <textarea id="dificuldades" name="Maiores dificuldades" required></textarea>
+      </div>
+
+
+      <!-- Consentimento -->
+      <div class="field">
+        <label>Privacidade e contato</label>
+        <small>
+          Eu concordo em compartilhar meus dados e receber comunicações por e-mail e por telefone/WhatsApp.
+        </small>
+        <div class="options-group">
+          <label>
+            <input type="checkbox" name="Consentimento" value="Eu concordo" required />
+            Eu concordo
+          </label>
+        </div>
+      </div>
+
+      <button type="submit">
+        <span class="icon">🚀</span>
+        Quero participar do processo seletivo
+      </button>
+    </form>
+  </div>
+
+  <!-- Floater WhatsApp -->
+  <a
+    href="https://www.joindevup.com/whatsapp"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <div class="icon-circle">W</div>
+    <span class="label">Ficou com dúvida? Mande uma mensagem!</span>
+  </a>
+</body>
+</html>
