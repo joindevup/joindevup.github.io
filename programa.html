@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>DevUp – Seu próximo salto de carreira não depende da sua empresa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="DevUp: programa de 6 meses para devs que querem evoluir com clareza, constância, visibilidade e rede forte, sem burnout." />
+  <style>
+    :root {
+      --bg: #f7fafc;
+      --bg-alt: #ffffff;
+      --primary: #2563eb;
+      --primary-soft: #dbeafe;
+      --accent: #0f172a;
+      --text: #111827;
+      --text-muted: #6b7280;
+      --border: #e5e7eb;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at top left, #e0f2fe, #f9fafb 40%, #eff6ff 80%);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      backdrop-filter: blur(14px);
+      background: rgba(248, 250, 252, 0.85);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      color: var(--accent);
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #bfdbfe, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #eff6ff;
+      font-size: 0.9rem;
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.45);
+    }
+
+    .nav-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .nav-cta a span {
+      font-size: 1.1rem;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .section {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 2.75rem 1.25rem;
+    }
+
+    /* HERO */
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 3rem;
+      align-items: center;
+      padding-top: 3rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(219, 234, 254, 0.9);
+      color: #1d4ed8;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+    }
+
+    .hero h1 {
+      font-size: clamp(1.9rem, 3.1vw, 2.6rem);
+      line-height: 1.1;
+      margin: 0 0 1rem;
+      color: var(--accent);
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero-sub {
+      font-size: 1.02rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-bullets span {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1rem;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(120deg, #2563eb, #1d4ed8);
+      color: #eff6ff;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 18px 35px rgba(37, 99, 235, 0.4);
+    }
+
+    .btn-primary span {
+      font-size: 1.2rem;
+    }
+
+    .hero-note {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 24px;
+      padding: 1.75rem 1.6rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 55%);
+      pointer-events: none;
+    }
+
+    .hero-card-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6b7280;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .hero-card-main {
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .hero-card-main strong {
+      color: #1d4ed8;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .hero-card-list li {
+      margin-bottom: 0.4rem;
+      display: flex;
+      gap: 0.4rem;
+    }
+
+    .hero-card-list li::before {
+      content: "•";
+      color: #2563eb;
+      margin-top: 0.1rem;
+    }
+
+    /* Sections */
+
+    .section-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+      color: var(--accent);
+    }
+
+    .section-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+      color: #6b7280;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    .section-sub {
+      font-size: 0.97rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 1.4rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.75rem;
+    }
+
+    .pill-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .pill-list li {
+      margin-bottom: 0.6rem;
+      padding: 0.65rem 0.8rem;
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border);
+      font-size: 0.92rem;
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .pill-list li span {
+      font-size: 1rem;
+      color: #2563eb;
+      margin-top: 0.05rem;
+    }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.3rem;
+      border: 1px solid var(--border);
+    }
+
+    .card h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      color: var(--accent);
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .columns-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      background: #e0f2fe;
+      color: #0369a1;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .stacked-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .stacked-list li {
+      margin-bottom: 0.4rem;
+    }
+
+    .highlight-box {
+      background: #eef2ff;
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.1rem;
+      border: 1px dashed #c7d2fe;
+      font-size: 0.9rem;
+      color: #4338ca;
+      margin-top: 1rem;
+    }
+
+    .highlight-box strong {
+      color: #1d4ed8;
+    }
+
+    .check-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .check-list li {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: #16a34a;
+      font-weight: 600;
+    }
+
+    .cta-section {
+      text-align: center;
+      padding-bottom: 3.5rem;
+    }
+
+    .cta-box {
+      margin: 0 auto;
+      max-width: 720px;
+      background: linear-gradient(135deg, #1d4ed8, #3730a3);
+      border-radius: 24px;
+      padding: 2.2rem 1.8rem;
+      color: #e5edff;
+      box-shadow: 0 22px 55px rgba(30, 64, 175, 0.55);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(191, 219, 254, 0.18), transparent 60%);
+      pointer-events: none;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.6rem;
+    }
+
+    .cta-box p {
+      margin: 0 0 1.4rem;
+      font-size: 0.98rem;
+      opacity: 0.95;
+    }
+
+    .cta-box .btn-primary {
+      background: #f9fafb;
+      color: #1d4ed8;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.3);
+    }
+
+    .cta-sub {
+      margin-top: 0.8rem;
+      font-size: 0.83rem;
+      opacity: 0.9;
+    }
+
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(241, 245, 249, 0.9);
+      padding: 1.4rem 1.25rem 1.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      color: #6b7280;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonials {
+      background: radial-gradient(circle at top left, #eff6ff, #ffffff 45%, #f9fafb 90%);
+      border-radius: 24px;
+      padding: 2rem 1.6rem;
+      border: 1px solid rgba(191, 219, 254, 0.8);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.06);
+      margin-top: 0.5rem;
+    }
+
+    .testimonials-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 0.75rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .testimonials-title {
+      font-size: 1.2rem;
+      margin: 0;
+      color: var(--accent);
+    }
+
+    .testimonials-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 340px;
+      margin: 0;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      padding: 1.1rem 1.1rem 1rem;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .testimonial-card::before {
+      content: "“";
+      position: absolute;
+      top: -24px;
+      right: 16px;
+      font-size: 4rem;
+      color: rgba(191, 219, 254, 0.7);
+      font-family: Georgia, "Times New Roman", serif;
+      pointer-events: none;
+    }
+
+    .testimonial-text {
+      font-size: 0.9rem;
+      color: #111827;
+      line-height: 1.6;
+      margin-bottom: 0.7rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.82rem;
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+
+    /* MICRO QUOTES CAROUSEL */
+
+    .micro-quotes {
+      margin-top: 1.6rem;
+      border-top: 1px dashed rgba(148, 163, 184, 0.4);
+      padding-top: 1.1rem;
+    }
+
+    .micro-quotes-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #6b7280;
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .mq-track {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding-bottom: 0.4rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mq-track::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .mq-track::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .mq-track::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.7);
+      border-radius: 999px;
+    }
+
+    .mq-card {
+      min-width: 230px;
+      max-width: 260px;
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      border: 1px solid #e5e7eb;
+      font-size: 0.84rem;
+      color: #374151;
+      scroll-snap-align: start;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.05);
+      white-space: normal;
+    }
+
+    .mq-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: #dbeafe;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      color: #1d4ed8;
+      flex-shrink: 0;
+    }
+
+    .mq-text {
+      line-height: 1.45;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2.2rem;
+      }
+      .hero-card {
+        order: -1;
+      }
+      .columns-3 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .cta-box {
+        padding: 1.8rem 1.4rem;
+      }
+      .testimonials-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .hero-card {
+        padding: 1.4rem 1.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="nav">
+      <div class="logo">
+        <div class="logo-mark">D</div>
+        <div>DevUp</div>
+      </div>
+      <div class="nav-cta">
+        <a href="#inscricao">
+          <span>⬤</span> Processo seletivo aberto
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="section hero">
+      <div>
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          Programa de evolução contínua para devs
+        </div>
+        <h1>Seu próximo salto de carreira <span>não depende da sua empresa</span>.</h1>
+        <p class="hero-sub">
+          Uma jornada de 6 meses para devs que querem evoluir com clareza, constância,
+          visibilidade e rede forte — sem burnout e sem caminhar sozinhos.
+        </p>
+        <div class="hero-bullets">
+          <span>Foco no pós-vaga</span>
+          <span>Direção + execução</span>
+          <span>Networking qualificado</span>
+          <span>Referência sênior</span>
+        </div>
+        <div class="hero-cta">
+          <a href="processo-seletivo" class="btn-primary">
+            Quero me inscrever no processo seletivo <span>→</span>
+          </a>
+          <div class="hero-note">
+            Selecionamos pessoas que realmente estão prontas para cuidar da própria carreira nos próximos 6 meses.
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-card-title">O que o DevUp faz por você</div>
+        <div class="hero-card-main">
+          Em até <strong>6 meses</strong>, você terá um upgrade real na carreira — com
+          <strong>direção, constância e visibilidade</strong> — sem risco de burnout.
+        </div>
+        <ul class="hero-card-list">
+          <li>Plano de carreira alinhado com suas metas de vida e finanças.</li>
+          <li>Reviews semanais e mensais para garantir execução e ajustes.</li>
+          <li>Networking estruturado com devs comprometidos e referências sênior.</li>
+          <li>Estratégias práticas para aumento, promoção e troca de empresa.</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- PROBLEMA / CONTEXTO -->
+    <section class="section">
+      <div class="section-kicker">O problema real</div>
+      <h2 class="section-title">O mercado te ensinou a entrar. Ninguém te ensinou a crescer no pós-vaga.</h2>
+      <p class="section-sub">
+        A partir das entrevistas, a maioria dos devs vive o mesmo ciclo após conquistar
+        a primeira vaga: euforia inicial, sobrevivência, queda de ritmo, estagnação, solidão
+        no remoto, medo de trocar de empresa e zero clareza sobre como virar pleno ou dar o próximo salto.
+      </p>
+      <div class="grid-2">
+        <div>
+          <ul class="pill-list">
+            <li><span>•</span> Empresas com baixa senioridade e pouca referência técnica.</li>
+            <li><span>•</span> Trabalho remoto que aumenta a solidão e a insegurança.</li>
+            <li><span>•</span> Falta de clareza sobre o que é preciso para promoção ou aumento.</li>
+            <li><span>•</span> Estudo desorganizado: muitos cursos, pouca direção.</li>
+            <li><span>•</span> Vida financeira instável impactando foco e performance.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>O que a pesquisa mostrou</h3>
+          <p>
+            Os devs não travam por falta de conteúdo ou tecnologia. Eles travam por falta de
+            ambiente: direção clara, acompanhamento, rede qualificada, visibilidade e referências
+            fortes. É essa lacuna que o DevUp foi criado para resolver.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- JORNADA PÓS-VAGA -->
+    <section class="section">
+      <div class="section-kicker">Jornada pós-vaga</div>
+      <h2 class="section-title">O caminho real que 90% dos devs percorrem após a primeira vaga</h2>
+      <p class="section-sub">
+        Este não é um desenho teórico. É a jornada que encontramos repetida nos relatos de devs em diferentes níveis e empresas.
+      </p>
+      <div class="columns-3">
+        <div class="card">
+          <span class="tag">Início</span>
+          <h3>1. Euforia → 2. Sobrevivência → 3. Autonomia limitada</h3>
+          <p>
+            A vaga chega, vem a emoção e a vontade de provar valor. Logo entram medo, adaptação,
+            estudo para sobreviver e pequenas vitórias. A sensação de “agora vai” vira “estou tentando me virar”.
+          </p>
+        </div>
+        <div class="card">
+          <span class="tag">Zona de risco</span>
+          <h3>4. Queda de constância → 5. Estagnação → 6. Realidade da empresa</h3>
+          <p>
+            Sem acompanhamento, o ritmo cai. O estudo fica solto, os meses passam e a promoção
+            não vem. Fica claro que o ambiente não vai fornecer o que falta: referência, desafio, plano.
+          </p>
+        </div>
+        <div class="card">
+          <span class="tag">Virada</span>
+          <h3>7. Solidão → 8. Busca por referência → 9. Crise → 10. DevUp</h3>
+          <p>
+            Surge a solidão técnica e emocional, o medo de ter parado no tempo, o desejo de trocar
+            de empresa sem saber como. É nesse momento que o dev entende que sozinho não vai.
+            E busca um ambiente como o DevUp.
+          </p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <strong>O DevUp entra exatamente depois da estagnação.</strong><br />
+        Ele transforma um ciclo de tentativa e erro em um ciclo de evolução contínua, com direção,
+        acompanhamento, rede forte e visibilidade real.
+      </div>
+    </section>
+
+    <!-- PARA QUEM É -->
+    <section class="section">
+      <div class="section-kicker">Para quem é</div>
+      <h2 class="section-title">O DevUp foi criado para devs que já estão no jogo — e querem jogar em outro nível.</h2>
+      <div class="grid-2">
+        <div>
+          <h3 style="font-size:1rem; margin-bottom:0.4rem;">Este programa é para você se:</h3>
+          <ul class="check-list">
+            <li>Você já trabalha como dev e sente que poderia estar avançando mais rápido.</li>
+            <li>Você quer virar pleno/sênior e não tem clareza do caminho.</li>
+            <li>Você está em empresa sem referência sênior e se sente limitado pelo ambiente.</li>
+            <li>Você pensa em trocar de empresa, mas não quer dar um salto no escuro.</li>
+            <li>Você já cansou de estudar sem direção e quer um plano real, com acompanhamento.</li>
+            <li>Você quer construir reputação, visibilidade e relacionamentos que abrem portas.</li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="font-size:1rem; margin-bottom:0.4rem;">Não é para você se:</h3>
+          <ul class="stacked-list">
+            <li>Você quer uma solução mágica, sem esforço.</li>
+            <li>Você não está disposto a se comprometer com sua evolução por 6 meses.</li>
+            <li>Você quer apenas aprender uma nova tecnologia, sem olhar para carreira e vida.</li>
+            <li>Você prefere continuar apostando na sorte ou na boa vontade da empresa.</li>
+          </ul>
+          <p class="muted" style="margin-top:0.7rem;">
+            O DevUp é para quem está comprometido em crescer de forma intencional, sustentável
+            e estratégica — e está pronto para assumir o protagonismo da própria carreira.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- O PROGRAMA EM SI -->
+    <section class="section">
+      <div class="section-kicker">O programa</div>
+      <h2 class="section-title">O que você recebe no DevUp</h2>
+      <p class="section-sub">
+        Uma combinação de método, rotina, acompanhamento, rede e referência. Não é um curso: é um ambiente de evolução contínua durante 6 meses.
+      </p>
+      <div class="columns-3">
+        <div class="card">
+          <h3>Onboarding & Plano de Carreira</h3>
+          <p>
+            Onboarding detalhado do semestre e construção de um plano de carreira integrado:
+            vida + carreira + finanças. Objetivos claros, metas intermediárias alcançáveis e
+            visão do próximo salto.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Método Dev Hero & Daily Monitor</h3>
+          <p>
+            A aplicação dos 5 pilares da carreira em conjunto com o Daily Monitor para estruturar
+            sua rotina de alta performance, garantir foco e evitar o auto-sabotagem do “começo e paro”.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Debugger da Carreira</h3>
+          <p>
+            Sessões individuais com Henrique ou Pedro para revisar, ajustar e refinar seu plano,
+            levando em conta seu contexto real, suas oportunidades e seus pontos cegos.
+          </p>
+        </div>
+      </div>
+
+      <div class="columns-3" style="margin-top:1.2rem;">
+        <div class="card">
+          <h3>Reviews Semanais</h3>
+          <p>
+            Um sistema leve de revisão para marcar o que foi feito, ajustar rota e garantir
+            que sua evolução não dependa só de “motivação do dia”.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Reviews Mensais ao Vivo</h3>
+          <p>
+            Encontros mensais no Zoom com exercícios prévios e posteriores, onde aplicamos
+            PDCA na prática para a sua carreira. Você não vai revisar o plano só na sua cabeça.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Comunidade e Networking</h3>
+          <p>
+            Uma comunidade de devs no mesmo caminho: gente comprometida, não curiosa. Um ambiente
+            para trocar, receber feedback, compartilhar vitórias e criar conexões que abrem portas.
+          </p>
+        </div>
+      </div>
+
+      <div class="columns-3" style="margin-top:1.2rem;">
+        <div class="card">
+          <h3>Acesso a Devs Sênior & Convidados</h3>
+          <p>
+            Acesso à rede de profissionais do DevUp: podemos convidar pessoas-chave para
+            sessões, entrevistas e MasterClasses alinhadas ao plano da turma.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Visibilidade & Reputação</h3>
+          <p>
+            Orientação prática para você construir sua narrativa profissional, se posicionar
+            internamente, negociar aumento e tornar suas entregas visíveis.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Suporte Contínuo</h3>
+          <p>
+            Acompanhamento ao longo dos 6 meses para que você não trave sozinho em decisões
+            importantes: troca de empresa, renegociação, mudança de foco, entre outros.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="section">
+      <div class="section-kicker">Depoimentos</div>
+      <h2 class="section-title">O que devs do pós-vaga dizem depois de viver um ambiente como o DevUp</h2>
+      <p class="section-sub">
+        Esses relatos não são de quem “começou do zero”, e sim de desenvolvedores que já estavam no mercado,
+        sentindo na pele a solidão, a falta de direção e a estagnação — e encontraram no DevUp o ambiente que
+        faltava para destravar o próximo nível.
+      </p>
+
+      <div class="testimonials">
+        <div class="testimonials-header">
+          <h3 class="testimonials-title">Resultados que aparecem na carreira e na vida</h3>
+          <p class="testimonials-sub">
+            Direção, constância, visibilidade e rede forte: o padrão dos depoimentos é sempre o mesmo — ninguém sai do DevUp igual entrou.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <p class="testimonial-text">
+              “Eu entrei achando que precisava de mais cursos. Descobri que o que faltava era
+              direção, não conteúdo. Em três meses saí de perdido para pronto para pedir promoção
+              com argumentos claros e dados das minhas entregas.”
+            </p>
+            <div class="testimonial-author">Dev backend, 1º emprego</div>
+            <div class="testimonial-role">Reenquadrando carreira para pleno</div>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-text">
+              “Eu estava estagnado há mais de um ano na mesma empresa. Com o plano e os reviews
+              mensais consegui organizar minha estratégia, parei de atirar para todos os lados
+              e troquei de vaga com 35% de aumento sem entrar em parafuso.”
+            </p>
+            <div class="testimonial-author">Desenvolvedor full stack</div>
+            <div class="testimonial-role">Transição para empresa mais sólida</div>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-text">
+              “O DevUp me devolveu a sensação de não estar sozinho. Antes eu só tinha Slack e
+              reunião de sprint. Hoje tenho gente acima de mim para perguntar, comparar decisões
+              e enxergar o que eu não vejo. O networking e as referências valem mais que qualquer curso que já fiz.”
+            </p>
+            <div class="testimonial-author">Dev front-end remoto</div>
+            <div class="testimonial-role">Saindo da solidão técnica no home office</div>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-text">
+              “A maior diferença pra mim foi ter alguém olhando para a minha carreira como um todo,
+              não só para a parte técnica. Isso impactou minha renda, minha rotina e a forma como eu
+              me enxergo como profissional. Parei de viver apagando incêndio e comecei a construir trajetória.”
+            </p>
+            <div class="testimonial-author">Engenheira de software</div>
+            <div class="testimonial-role">Organizando carreira, vida e finanças</div>
+          </article>
+        </div>
+
+        <!-- MICRO QUOTES CAROUSEL -->
+        <div class="micro-quotes">
+          <div class="micro-quotes-label">Frases que ouvimos o tempo todo</div>
+          <div class="mq-track">
+            <div class="mq-card">
+              <div class="mq-icon">★</div>
+              <div class="mq-text">“Eu fazia muita coisa, mas nada com direção. Agora eu sei exatamente o que priorizar.”</div>
+            </div>
+            <div class="mq-card">
+              <div class="mq-icon">★</div>
+              <div class="mq-text">“Pela primeira vez eu tenho com quem comparar minhas decisões de carreira.”</div>
+            </div>
+            <div class="mq-card">
+              <div class="mq-icon">★</div>
+              <div class="mq-text">“Eu achava que estava atrasado. Descobri que só estava sozinho.”</div>
+            </div>
+            <div class="mq-card">
+              <div class="mq-icon">★</div>
+              <div class="mq-text">“O maior ganho não foi um aumento só, foi saber como repetir esse processo.”</div>
+            </div>
+            <div class="mq-card">
+              <div class="mq-icon">★</div>
+              <div class="mq-text">“Antes eu estudava para acumular cursos. Agora estudo para mudar de faixa salarial.”</div>
+            </div>
+            <div class="mq-card">
+              <div class="mq-icon">★</div>
+              <div class="mq-text">“Só de parar de me comparar com feed e começar a me comparar com meu plano, minha ansiedade caiu.”</div>
+            </div>
+            <div class="mq-card">
+              <div class="mq-icon">★</div>
+              <div class="mq-text">“Eu não esperava que olhar para finanças junto com carreira fosse fazer tanta diferença.”</div>
+            </div>
+            <div class="mq-card">
+              <div class="mq-icon">★</div>
+              <div class="mq-text">“Hoje eu sei explicar meu valor em 2 minutos. Isso mudou como me ouvem na empresa.”</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INVESTIMENTO / CUSTO DE FICAR PARADO -->
+    <section class="section">
+      <div class="section-kicker">Investimento</div>
+      <h2 class="section-title">Quanto custa não fazer nada?</h2>
+      <div class="grid-2">
+        <div>
+          <p class="section-sub" style="margin-bottom:0.8rem;">
+            Pelos dados que temos, um dev que passa 6 meses sem cuidar de forma ativa da carreira — sem plano,
+            sem acompanhamento, sem rede forte — perde em média <strong>R$ 15.000</strong> em oportunidades,
+            aumento, promoções e vagas melhores que não chegam.
+          </p>
+          <p class="muted">
+            Estagnação tem custo. Não é invisível. É um boleto silencioso que você paga mês a mês.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Condições do DevUp</h3>
+          <p style="margin-bottom:0.5rem;">
+            O valor cheio do programa completo de 6 meses é de:
+          </p>
+          <p style="font-size:1.1rem; margin:0 0 0.3rem;"><strong>R$ 6.000</strong></p>
+          <p style="margin:0.3rem 0 0.6rem; font-size:0.9rem; color:var(--text-muted);">
+            Para matrículas antecipadas, oferecemos <strong>20% de desconto</strong>:
+          </p>
+          <p style="font-size:1.05rem; margin:0 0 0.2rem;">
+            <strong>R$ 4.800 à vista</strong>
+          </p>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin:0 0 0.6rem;">
+            ou em condições especiais de parcelamento, como <strong>12x de R$ 496</strong>.
+          </p>
+          <p class="muted">
+            A ideia é simples: fazer com que o semestre se pague sozinho — seja por aumento, promoção, nova vaga
+            ou evitando mais 6 meses de estagnação.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="section cta-section" id="inscricao">
+      <div class="cta-box">
+        <h2>Pronto para disputar uma vaga no DevUp?</h2>
+        <p>
+          O DevUp não é um curso em massa. É um programa com vagas limitadas, para quem está realmente preparado
+          para cuidar da carreira nos próximos 6 meses. Se fizer sentido para o seu momento, você entra no processo
+          seletivo e conversa com a nossa equipe antes de qualquer matrícula.
+        </p>
+        <a href="processo-seletivo" class="btn-primary">
+          Quero me inscrever no processo seletivo do DevUp →
+        </a>
+        <div class="cta-sub">
+          Depois da inscrição, vamos analisar seu momento e te chamar para uma conversa, ou indicar outros caminhos
+          se entendermos que ainda não é a hora do DevUp para você.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>DevUp © <span id="year"></span> – Alta performance com saúde, clareza e rede forte.</div>
+      <div>Criado por Henrique de Andrade &amp; Pedro Marins.</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
