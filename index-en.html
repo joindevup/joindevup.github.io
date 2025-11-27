@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-    <link rel="alternate icon" href="img/favicon.ico">
   <meta charset="UTF-8" />
-  <title>DevUp | Desenvolvedores de Alto Desempenho para a Era da IA</title>
+  <title>DevUp | High-Performance Software Developers for the AI Era</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
@@ -42,7 +41,7 @@
       padding: 24px 18px 40px;
     }
 
-    /* topo */
+    /* header */
 
     header.site-header {
       display: flex;
@@ -160,7 +159,7 @@
       display: block;
     }
 
-    /* seções gerais */
+    /* general sections */
 
     section {
       margin-bottom: 40px;
@@ -257,7 +256,7 @@
       color: var(--devup-muted);
     }
 
-    /* parceiros */
+    /* partners */
 
     .partners-logos {
       display: grid;
@@ -296,7 +295,7 @@
       margin-bottom: 2px;
     }
 
-    /* fundadores */
+    /* founders */
 
     .founders {
       display: grid;
@@ -346,7 +345,7 @@
       margin-bottom: 6px;
     }
 
-    /* contato */
+    /* contact */
 
     .contact {
       background: #ffffff;
@@ -416,226 +415,216 @@
         font-size: 1.8rem;
       }
     }
-      
-      /* CTA fixo no rodapé */
-.whatsapp-fixed {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
-  background: #25d366; /* verde WhatsApp */
-  color: white;
-  font-weight: 600;
-  padding: 12px 18px;
-  border-radius: 999px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-  text-decoration: none;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  z-index: 9999;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
 
-.whatsapp-fixed:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 34px rgba(0,0,0,0.28);
-}
-      
-      /* Links dentro da seção de fundadores */
-.founder a {
-  color: var(--devup-navy) !important;
-  text-decoration: none;
-}
+    /* fixed WhatsApp CTA */
+    .whatsapp-fixed {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      background: #25d366;
+      color: white;
+      font-weight: 600;
+      padding: 12px 18px;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+      text-decoration: none;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 9999;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
 
-.founder a:hover {
-  color: var(--devup-accent) !important;
-  text-decoration: underline;
-}
+    .whatsapp-fixed:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(0,0,0,0.28);
+    }
+
+    /* founder links */
+    .founder a {
+      color: var(--devup-navy) !important;
+      text-decoration: none;
+    }
+
+    .founder a:hover {
+      color: var(--devup-accent) !important;
+      text-decoration: underline;
+    }
 
   </style>
 </head>
 <body>
   <div class="page">
 
-    <!-- topo -->
+    <!-- header -->
     <header class="site-header">
       <div class="logo-area">
-        <!-- se tiver logo em arquivo, troque este bloco por <img src="img/logo-devup.svg" ...> -->
         <div class="logo-img">D!</div>
         <div class="logo-text">Dev<span>Up</span>!</div>
       </div>
       <div class="lang-switch">
-        Idioma:
-        <a href="index-en.html">EN</a> ·
-        <a href="index.html"><strong>PT</strong></a> ·
+        Language:
+        <a href="index-en.html"><strong>EN</strong></a> ·
+        <a href="index.html">PT</a> ·
         <a href="index-es.html">ES</a>
       </div>
     </header>
 
-    <!-- hero institucional com imagem -->
+    <!-- hero -->
     <section class="hero">
       <div>
         <div class="hero-tag">
           <span class="hero-tag-icon">⚙️</span>
-          Desenvolvedores para a Era da IA
+          Developers for the AI Era
         </div>
-        <h1>Alta performance e empregabilidade real sem burnout para devs</h1>
-        <h2>Uma metodologia de formação que une excelência técnica, estratégia de carreira e bem-estar!</h2>
+        <h1>High performance and real employability without burnout</h1>
+        <h2>A development methodology that combines technical excellence, career strategy, and well-being.</h2>
         <p>
-          O <span class="hero-highlight">DevUp</span> é um ecossistema de desenvolvimento contínuo para
-          desenvolvedores de software, apoiado em pesquisas científicas, dados de mercado e aprendizados práticos.
-          Ajudamos devs a se manterem relevantes por toda sua carreira e empresas a construírem times de engenharia mais maduros e sustentáveis.
+          <span class="hero-highlight">DevUp</span> is a continuous-development ecosystem for software engineers,
+          powered by scientific research, market data, and practical mentoring experience.
+          We help devs stay relevant throughout their careers and help companies build mature, sustainable engineering teams.
         </p>
       </div>
 
       <div class="hero-illustration">
-        <!-- Trocar por uma imagem própria/ilustração da marca -->
-        <img
-          src="img/devup-logo-small.jpeg"
-          alt="Ilustração de pessoa desenvolvendo em um notebook"
-        />
+        <img src="img/devup-logo-small.jpeg" alt="DevUp illustration" />
       </div>
     </section>
 
-    <!-- sobre -->
+    <!-- about -->
     <section id="sobre">
       <h3>
         <span class="section-icon">📚</span>
-        Sobre o DevUp
+        About DevUp
       </h3>
       <p>
-        O DevUp nasce na interseção entre pesquisa acadêmica, prática de mercado e inovação educacional.
-        É resultado de anos de atuação com formações em desenvolvimento de software, mentorias de carreira
-        e investigação sobre alta performance, empregabilidade e bem-estar na área de tecnologia.
+        DevUp is built at the intersection of academic research, industry practice, and educational innovation.
+        It is the result of years of experience in software-development training, career mentoring, and research on
+        high performance, employability, and well-being in technology.
       </p>
       <p>
-        Nosso compromisso é formar desenvolvedores capazes de lidar com contextos complexos, colaborar com IA
-        de forma inteligente e construir trajetórias profissionais sustentáveis, sem abrir mão de saúde mental
-        e qualidade de vida.
+        Our mission is to prepare developers to navigate complex environments, collaborate with AI intelligently,
+        and build sustainable career paths without sacrificing mental health or quality of life.
       </p>
     </section>
 
-    <!-- problemas -->
+    <!-- problems -->
     <section id="problemas">
       <h3>
         <span class="section-icon">🚧</span>
-        Desafios que endereçamos
+        Challenges We Address
       </h3>
 
       <div class="grid-3">
         <div class="card">
           <div class="card-header">
             <div class="icon-circle">🎯</div>
-            <h4>Formações superficiais</h4>
+            <h4>Shallow technical education</h4>
           </div>
           <p>
-            Excesso de cursos focados só em ferramentas e sintaxe, sem desenvolver pensamento crítico,
-            visão de produto e autonomia nos devs.
+            An excess of courses focused only on tools and syntax, without developing critical thinking,
+            product understanding, or autonomy.
           </p>
         </div>
 
         <div class="card">
           <div class="card-header">
             <div class="icon-circle">📉</div>
-            <h4>Carreiras estagnadas</h4>
+            <h4>Stagnant careers</h4>
           </div>
           <p>
-            Profissionais com boa base técnica que não conseguem avançar de nível, se posicionar melhor
-            ou navegar o mercado em transformação.
+            Developers with solid technical foundations who struggle to progress,
+            position themselves, or navigate a rapidly changing market.
           </p>
         </div>
 
         <div class="card">
           <div class="card-header">
             <div class="icon-circle">🔥</div>
-            <h4>Burnout e exaustão</h4>
+            <h4>Burnout and exhaustion</h4>
           </div>
           <p>
-            Times pressionados por entregas constantes, com pouca estrutura para cuidar de bem-estar,
-            limites saudáveis e priorização.
+            Teams under constant pressure, often without structure to support well-being,
+            boundaries, and healthy prioritization.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- solução -->
-    <section id="solucao">
+    <!-- solution -->
+<section id="solucao">
   <h3>
     <span class="section-icon">🧩</span>
-    O que oferecemos
+    What We Offer
   </h3>
   <p>
-    O DevUp combina direção estratégica, estrutura sólida e acompanhamento humano para que
-    desenvolvedores avancem com constância, propósito e saúde mental na era da IA.
+    DevUp combines strategic direction, solid structure, and human guidance so developers can grow
+    with consistency, purpose, and mental health in the AI era.
   </p>
 
   <div class="grid-3">
 
-    <!-- DIREÇÃO -->
+    <!-- Direction -->
     <div class="card">
       <div class="card-header">
         <div class="icon-circle">🧭</div>
-        <h4>Direção</h4>
+        <h4>Direction</h4>
       </div>
       <p>
-        Clareza de caminho e metas bem definidas.  
-        Planejamento de carreira, exercícios estratégicos e definição de objetivos
-        que fazem sentido para cada dev em seu momento.
+        Clear goals and a defined path forward.  
+        Career planning, strategic exercises, and goal-setting tailored to each developer's moment.
       </p>
       <p style="margin-top:6px;">
-        Método exclusivo para definição de metas, criação de roadmap de carreira e feedbacks
-        para alinhamento profundo.
+        Includes our methodology for goal definition, career roadmapping, and feedback alignment.
       </p>
     </div>
 
-    <!-- ESTRUTURA -->
+    <!-- Structure -->
     <div class="card">
       <div class="card-header">
         <div class="icon-circle">🏗️</div>
-        <h4>Estrutura</h4>
+        <h4>Structure</h4>
       </div>
       <p>
-        Sistema de ferramentas que transforma intenção em constância:
-        Daily Monitor, rotinas diárias, rituais semanais, acompanhamentos,
-        micro-hábitos (Small Acts) e revisões estruturadas.
+        A system of tools that turns intention into consistency:
+        Daily Monitor, routines, weekly rituals, tracking, micro-habits (Small Acts),
+        and structured reviews.
       </p>
       <p style="margin-top:6px;">
-        A estrutura garante que o plano não fique no papel — ela organiza, mede,
-        calibra e sustenta o progresso.
+        The structure ensures the plan doesn’t stay on paper — it organizes, measures,
+        calibrates, and sustains progress.
       </p>
     </div>
 
-    <!-- ACOMPANHAMENTO -->
+    <!-- Support -->
     <div class="card">
       <div class="card-header">
         <div class="icon-circle">🤝</div>
-        <h4>Acompanhamento</h4>
+        <h4>Support</h4>
       </div>
       <p>
-        Mentoria contínua, comunidade madura e revisões personalizadas para garantir
-        avanços consistentes sem risco de burnout.
+        Continuous mentorship, a mature community, and personalized reviews to ensure
+        consistent progress without burnout.
       </p>
       <p style="margin-top:6px;">
-        Reviews semanais, reviews mensais (PDCA), orientação individual, MasterClasses sob demanda
-        e conexão com profissionais experientes da rede.
+        Weekly reviews, monthly PDCA reviews, individual guidance, on-demand MasterClasses,
+        and access to experienced professionals.
       </p>
     </div>
 
   </div>
 </section>
 
- 
-
-    <!-- para quem é -->
-    <section id="publicos">
+    <!-- audience -->
+<section id="publicos">
   <h3>
     <span class="section-icon">🎯</span>
-    Para quem é o DevUp
+    Who DevUp Is For
   </h3>
   <p>
-    O DevUp atende tanto desenvolvedores individuais quanto empresas, aplicando a mesma tríade —
-    <strong>Direção, Estrutura e Acompanhamento</strong> — adaptada a cada contexto.
+    DevUp serves both individual developers and companies, applying the same trio —  
+    <strong>Direction, Structure, and Support</strong> — adapted to each context.
   </p>
 
   <div class="grid-2">
@@ -644,16 +633,16 @@
     <div class="card">
       <div class="card-header">
         <div class="icon-circle">👤</div>
-        <h4>Desenvolvedores individuais (B2C)</h4>
+        <h4>Developers (B2C)</h4>
       </div>
       <p>
-        Para profissionais que desejam avançar com clareza e consistência na carreira. 
-        O DevUp oferece direção para definir metas realistas, estrutura para organizar rotinas 
-        e desenvolver constância, e acompanhamento humano para evoluir sem burnout.
+        For professionals who want clear, consistent career growth.  
+        DevUp provides direction to define realistic goals, structure to build strong routines,
+        and support to grow without burnout.
       </p>
       <p style="margin-top:6px;">
-        Ideal para devs que querem aumentar salário, migrar de empresa, trabalhar remoto,
-        conquistar oportunidades internacionais ou simplesmente consolidar sua vaga atual com maturidade.
+        Ideal for devs seeking salary growth, remote work, international opportunities,
+        better positions, or stability in their current role.
       </p>
     </div>
 
@@ -661,212 +650,222 @@
     <div class="card">
       <div class="card-header">
         <div class="icon-circle">🏢</div>
-        <h4>Empresas e times de engenharia (B2B)</h4>
+        <h4>Companies & Engineering Teams (B2B)</h4>
       </div>
       <p>
-        Para organizações que desejam elevar o nível de seus times.  
-        A tríade do DevUp estrutura o desenvolvimento contínuo: direção para definir a senioridade desejada,
-        estrutura para criar rituais, ferramentas e processos de evolução, e acompanhamento para sustentar
-        o crescimento emocional e técnico dos devs.
+        For organizations that want to mature their engineering culture.  
+        DevUp’s trio helps: direction for seniority expectations, structure for rituals and processes,
+        and support for emotional and technical growth.
       </p>
       <p style="margin-top:6px;">
-        Ideal para empresas que querem reduzir turnover, acelerar a maturidade técnica dos squads,
-        fortalecer autonomia e criar ambientes de engenharia mais saudáveis.
+        Ideal for companies seeking to reduce turnover, accelerate team maturity,
+        strengthen autonomy, and build healthier engineering environments.
       </p>
     </div>
 
   </div>
 </section>
 
-    <!-- impacto -->
+    <!-- impact -->
     <section id="impacto">
       <h3>
         <span class="section-icon">📊</span>
-        Impacto e resultados
+        Impact & Results
       </h3>
       <div class="grid-3">
         <div class="card metric">
           <div class="icon-circle" style="margin: 0 auto 8px;">🚀</div>
-          <strong>100% de aproveitamento</strong>
+          <strong>100% success rate</strong>
           <span>
-            dos participantes relataram avanço de carreira em
-            até 6 meses (promoção, mudança de vaga ou melhoria de condições).
+            Participants reported career advancement within 6 months  
+            (promotion, job change, or improved working conditions).
           </span>
         </div>
         <div class="card metric">
           <div class="icon-circle" style="margin: 0 auto 8px;">👩‍💻</div>
-          <strong>1.500+ dev</strong>
+          <strong>1,500+ devs</strong>
           <span>
-            já implementaram o método em mentorias e programas
-            focados em empregabilidade e alta performance.
+            Trained through our programs, mentorships,  
+            and employability-focused initiatives.
           </span>
         </div>
         <div class="card metric">
           <div class="icon-circle" style="margin: 0 auto 8px;">🧪</div>
-          <strong>Base científica</strong>
+          <strong>Scientific foundation</strong>
           <span>
-            Metodologia fundamentada em pesquisas científicas sobre desempenho,
-            empregabilidade e bem-estar na era da IA.
+            Methodology grounded in research on performance,  
+            employability, and well-being in the AI era.
           </span>
         </div>
       </div>
     </section>
 
-    <!-- parceiros -->
+    <!-- partners -->
     <section id="parceiros">
       <h3>
         <span class="section-icon">🌐</span>
-        Parcerias e reconhecimento
+        Partnerships & Recognition
       </h3>
       <p>
-        O DevUp se apoia em um ecossistema de parceiros que conectam mercado, inovação e desenvolvimento de talentos.
+        DevUp is supported by an ecosystem of partners that connect innovation, research,
+        and software-development training.
       </p>
 
       <div class="partners-logos">
 
         <div class="partner">
           <div class="partner-logo">
-            <!-- Troque por logo real da Maravalley -->
-            <img src="img/maravalley.jpg" alt="Logo Maravalley.Rio" />
+            <img src="img/maravalley.jpg" alt="Maravalley.Rio" />
             <div>
               <strong>Maravalley.Rio</strong>
-              <span>Hub de inovação e tecnologia</span>
+              <span>Innovation & Technology Hub</span>
             </div>
           </div>
           <p>
-            Ecossistema de inovação da cidade do Rio de Janeiro que conecta startups, pesquisadores e empresas de tecnologia,
-            acelerando soluções digitais e novas formas de aprender e trabalhar.
+            Rio de Janeiro’s technology and innovation ecosystem connecting startups,
+            researchers, and companies to accelerate digital solutions.
           </p>
         </div>
 
         <div class="partner">
           <div class="partner-logo">
-            <!-- Troque por logo real do Web Summit -->
-            <img src="img/websummit.jpg" alt="Logo Web Summit" />
+            <img src="img/websummit.jpg" alt="Web Summit" />
             <div>
-              <strong>Web Summit Lisboa</strong>
-              <span>Evento internacional</span>
+              <strong>Web Summit Lisbon</strong>
+              <span>International Conference</span>
             </div>
           </div>
           <p>
-            O DevUp foi apresentado no Web Summit Lisboa, um dos maiores eventos de tecnologia do mundo,
-            destacando-se como iniciativa brasileira de formação em tecnologia para a era da IA.
+            DevUp was featured at Web Summit Lisbon, one of the world’s largest technology events,
+            highlighting Brazil’s innovation in AI-era developer education.
           </p>
         </div>
 
         <div class="partner">
           <div class="partner-logo">
-            <!-- Troque por logo real da CoDe -->
-            <img src="img/code.jpeg" alt="Logo CoDe Conhecimento" />
+            <img src="img/code.jpeg" alt="CoDe Conhecimento" />
             <div>
               <strong>CoDe Conhecimento</strong>
-              <span>Edtech parceira</span>
+              <span>EdTech Partner</span>
             </div>
           </div>
           <p>
-            Edtech focada em empregabilidade na área de desenvolvimento de software,
-            cofundada pelos criadores do DevUp, com histórico de centenas de devs alocados no mercado.
+            A leading Brazilian EdTech focused on employability in software development,
+            co-founded by the creators of DevUp.
           </p>
         </div>
 
       </div>
     </section>
 
-    <!-- fundadores -->
+    <!-- founders -->
     <section id="fundadores">
       <h3>
         <span class="section-icon">👥</span>
-        Fundadores
+        Founders
       </h3>
       <div class="founders">
+
         <div class="founder">
           <div class="founder-avatar">
-            <!-- Trocar pela foto real do Henrique -->
-            <a href="https://www.linkedin.com/in/henrique-de-andrade/" target="_blank"><img src="img/henrique.jpg" alt="Foto de Henrique Andrade" /></a>
+            <a href="https://www.linkedin.com/in/henrique-de-andrade/" target="_blank">
+              <img src="img/henrique.jpg" alt="Henrique Rabelo de Andrade" />
+            </a>
           </div>
           <div>
-           <a href="https://www.linkedin.com/in/henrique-de-andrade/" target="_blank"> <h4>Henrique Rabelo de Andrade</h4></a>
-              <div class="founder-role"><i>M.Sc. Engenharia de Computação - PESC/COPPE/UFRJ</i></div>
+            <a href="https://www.linkedin.com/in/henrique-de-andrade/" target="_blank">
+              <h4>Henrique Rabelo de Andrade</h4>
+            </a>
+            <div class="founder-role"><i>M.Sc. Computer Engineering – PESC/COPPE/UFRJ</i></div>
             <p>
-              Pesquisador na área de engenharia de sistemas de computação, focado em alta performance sem burnout. Atua há duas décadas com inovação em tecnologia, liderando times de desenvolvimento de software e de análise de dados.
+              Researcher in software engineering, performance, and developer well-being.
+              With two decades of experience in technology and innovation,
+              he has led engineering and data teams across multiple industries.
             </p>
           </div>
         </div>
 
         <div class="founder">
           <div class="founder-avatar">
-            <!-- Trocar pela foto real do Pedro -->
-        <a href="https://www.linkedin.com/in/pedromarins/" target="_blank">  <img src="img/pedro.jpeg" alt="Foto de Pedro Marins" /></a>
+            <a href="https://www.linkedin.com/in/pedromarins/" target="_blank">
+              <img src="img/pedro.jpeg" alt="Pedro Marins" />
+            </a>
           </div>
           <div>
-           <a href="https://www.linkedin.com/in/pedromarins/" target="_blank"> <h4>Pedro Marins</h4></a>
-            <div class="founder-role"><i>MBA Gestão do COnhecimento - CRIE/COPPE/UFRJ</i></div>
+            <a href="https://www.linkedin.com/in/pedromarins/" target="_blank">
+              <h4>Pedro Marins</h4>
+            </a>
+            <div class="founder-role"><i>MBA Knowledge Management – CRIE/COPPE/UFRJ</i></div>
             <p>
-              Desenvolvedor, educador e empreendedor cofundador de diversas StartUps. Com mais de 500 mil alunos em cursos online,
-              é referência no ensino de desenvolvimento front-end e na formação de devs preparados para o mercado.
+              Developer, educator, and entrepreneur.  
+              With more than 500,000 students in his online courses,
+              he is one of Brazil’s most recognized instructors in front-end development
+              and software-engineering education.
             </p>
           </div>
         </div>
+
       </div>
     </section>
 
-    <!-- contato -->
+    <!-- contact -->
 <section id="contato">
   <h3>
     <span class="section-icon">📩</span>
-    Entre em contato
+    Contact Us
   </h3>
 
   <div class="grid-2">
 
-    <!-- Caixa 1 – Institucional / Empresas / Ecossistema -->
+    <!-- organizations -->
     <div class="contact card">
-      <h4 style="margin-bottom:10px;">Para organizações</h4>
+      <h4 style="margin-bottom:10px;">For Organizations</h4>
       <p>
-        Se você representa uma empresa, universidade, hub de inovação ou comunidade de desenvolvedores 
-        e deseja entender melhor como o DevUp pode apoiar o crescimento de talentos em tecnologia, 
-        teremos prazer em conversar.
+        If you represent a company, university, innovation hub, or developer community
+        and want to explore how DevUp can support talent development,
+        we’d be happy to talk.
       </p>
       <p style="margin-bottom:14px;">
-        Podemos explorar parcerias para programas corporativos, pilotos com turmas selecionadas, 
-        iniciativas de bem-estar, retenção de talentos e ações de empregabilidade na era da IA.
+        We can explore corporate programs, pilot groups,
+        well-being initiatives, retention strategies, and AI-era employability solutions.
       </p>
 
-      <a class="button" href="https://www.joindevup.com/whatsapp-corporativo" target="_blank" rel="noopener noreferrer">
-        <span class="icon">💬</span> Falar com a equipe DevUp!
+      <a class="button" href="https://www.joindevup.com/whatsapp-corporativo" target="_blank">
+        <span class="icon">💬</span> Talk to the DevUp team
       </a>
     </div>
 
-    <!-- Caixa 2 – Para devs interessados -->
+    <!-- developers -->
     <div class="contact card">
-      <h4 style="margin-bottom:10px;">Para desenvolvedores</h4>
+      <h4 style="margin-bottom:10px;">For Developers</h4>
       <p>
-        Se você é um dev comprometido com sua carreira e quer cuidar do seu crescimento com método, clareza, 
-        estrutura e acompanhamento, clique abaixo para conhecer mais detalhes do programa DevUp.
+        If you’re committed to your career and want clarity, structure, and ongoing support to grow sustainably,
+        click below to learn more about the DevUp program.
       </p>
       <p style="margin-bottom:14px;">
-        Se você quiser participar poderá se inscrever no processo seletivo. Nós vamos avaliar seu momento, entender suas metas e verificar se faz sentido para você nesse momento fazer parte do DevUp!
+        You may apply to our selection process.  
+        We will evaluate your moment, understand your goals,
+        and check whether joining DevUp makes sense for you.
       </p>
 
-      <a class="button" href="programa" target="_blank" rel="noopener noreferrer">
-        <span class="icon">🚀</span> Conhecer o programa DevUp!
+      <a class="button" href="programa" target="_blank">
+        <span class="icon">🚀</span> Learn about the DevUp program
       </a>
     </div>
 
   </div>
 </section>
 
-
     <footer>
-      <div>© 2025 DevUp. Todos os direitos reservados.</div>
-      <div>Construído no Brasil para desenvolvedores do mundo todo.</div>
+      <div>© 2025 DevUp. All rights reserved.</div>
+      <div>Built in Brazil for developers around the world.</div>
     </footer>
-  </div><a href="https://www.joindevup.com/whatsapp" 
-   class="whatsapp-fixed" 
-   target="_blank" 
-   rel="noopener noreferrer">
-  💬 WhatsApp!
-</a>
+
+  </div>
+
+  <a href="https://www.joindevup.com/whatsapp" class="whatsapp-fixed" target="_blank">
+    💬 WhatsApp
+  </a>
 
 </body>
 </html>
