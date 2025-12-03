@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DevUp (DevUpgrade) — Evolução de Carreira com Alta Performance na Era da IA</title>
+  <meta name="description" content="DevUp (DevUpgrade) é o programa para evoluir sua senioridade e empregabilidade com alta performance e bem-estar.">
+  <style>
+    :root{
+      --bg: #06080f;
+      --bg-soft:#0c1020;
+      --card:#0f1429;
+      --card-2:#12193a;
+      --text:#e7ebff;
+      --muted:#a7b0d4;
+      --brand:#7c5cff;
+      --brand-2:#3ddc97;
+      --brand-3:#ffb703;
+      --radius:18px;
+      --radius-lg:24px;
+      --shadow: 0 12px 40px rgba(0,0,0,.45);
+      --maxw: 1140px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(1200px 700px at 70% -10%, #17204f 0%, transparent 60%),
+                  radial-gradient(1000px 600px at 20% -20%, #2a0f61 0%, transparent 55%),
+                  var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      background: rgba(6,8,15,.7); backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
+    .logo-dot{
+      width:12px;height:12px;border-radius:999px;
+      background: linear-gradient(135deg,var(--brand),var(--brand-2));
+      box-shadow:0 0 18px rgba(124,92,255,.8);
+    }
+    .nav-cta{display:flex;gap:10px;align-items:center}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border-radius:999px;font-weight:700;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.04); color:var(--text);
+      transition:all .2s ease; cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.07)}
+    .btn-primary{
+      background: linear-gradient(135deg,var(--brand) 0%, #5b8cff 55%, var(--brand-2) 100%);
+      border:none; color:#040615; box-shadow:0 10px 30px rgba(124,92,255,.45);
+    }
+    .btn-primary:hover{filter:saturate(1.1);transform:translateY(-2px)}
+
+    .hero{padding:72px 0 40px; position:relative; overflow:hidden;}
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:28px;align-items:center;}
+    .eyebrow{
+      display:inline-flex;gap:8px;align-items:center;
+      font-size:13px;font-weight:800;letter-spacing:.9px;text-transform:uppercase;
+      color:#c6ccff;background:rgba(124,92,255,.12);
+      border:1px solid rgba(124,92,255,.35);
+      padding:6px 10px;border-radius:999px;
+    }
+    h1{font-size: clamp(30px, 4vw, 52px);line-height:1.12; margin:14px 0 12px; font-weight:900;}
+    .sub{color:var(--muted);font-size: clamp(15px, 2vw, 18px);margin-bottom:18px;}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 8px}
+    .note{font-size:13px;color:var(--muted)}
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid rgba(255,255,255,.08);
+      padding:18px;border-radius:var(--radius-lg);
+      box-shadow:var(--shadow);
+    }
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px;}
+    .stat{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.06);
+      padding:14px;border-radius:14px;text-align:center;
+    }
+    .stat .n{font-size:22px;font-weight:900}
+    .stat .t{font-size:12px;color:var(--muted)}
+
+    section{padding:54px 0}
+    .section-title{font-size: clamp(22px,3vw,34px); font-weight:900; margin:0 0 8px;}
+    .section-sub{color:var(--muted);max-width:880px}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+    .card{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.07);
+      padding:18px;border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .pill{
+      display:inline-flex;align-items:center;gap:8px;
+      font-size:12px; font-weight:800; letter-spacing:.6px; text-transform:uppercase;
+      padding:6px 10px;border-radius:999px;background:rgba(61,220,151,.12);
+      border:1px solid rgba(61,220,151,.35); color:#c9ffe8;
+    }
+    .list{display:grid;gap:10px;margin-top:12px}
+    .li{
+      display:flex;gap:10px;align-items:flex-start;
+      background:var(--card-2);
+      border:1px solid rgba(255,255,255,.06);
+      padding:12px;border-radius:14px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;margin-top:6px;
+      background:linear-gradient(135deg,var(--brand-3),var(--brand));
+      flex:0 0 auto;
+    }
+    .muted{color:var(--muted)}
+    .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .badge{
+      font-size:12px;color:#d9defc;background:rgba(255,255,255,.05);
+      border:1px dashed rgba(255,255,255,.16);
+      padding:6px 10px;border-radius:999px;
+    }
+    .split{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center;
+      background:var(--bg-soft);border:1px solid rgba(255,255,255,.06);
+      padding:18px;border-radius:var(--radius-lg);
+    }
+    .price{
+      font-size: clamp(26px,4vw,38px); font-weight:900; margin:8px 0;
+      background: linear-gradient(90deg, #fff, #c2c9ff 30%, #7cf7c7);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .strike{color:var(--muted);text-decoration:line-through;margin-right:8px}
+
+    .faq{margin-top:14px;display:grid;gap:8px}
+    details{
+      background:var(--card);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:14px;padding:12px 14px;
+    }
+    summary{cursor:pointer;font-weight:800}
+
+    .cta-band{
+      background: radial-gradient(800px 400px at 10% 0%, rgba(124,92,255,.25), transparent 60%),
+                  radial-gradient(700px 400px at 90% 0%, rgba(61,220,151,.2), transparent 50%),
+                  var(--bg-soft);
+      border:1px solid rgba(255,255,255,.08);
+      padding:26px;border-radius:var(--radius-lg);
+      display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:center;
+    }
+
+    footer{
+      padding:26px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);
+    }
+    .center{text-align:center}
+
+    @media (max-width: 980px){
+      .hero-grid,.grid-3,.grid-2,.split,.cta-band{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (max-width: 520px){
+      .stats{grid-template-columns:1fr}
+      .hero{padding-top:54px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav-inner">
+      <div class="logo">
+        <span class="logo-dot"></span>
+        <span>DevUp</span>
+      </div>
+      <div class="nav-cta">
+        <a class="btn" href="#conteudo">Ver o que inclui</a>
+        <a class="btn btn-primary" href="#inscricao">Quero meu upgrade</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">DevUp (DevUpgrade) • Fluxo semestral</div>
+        <h1>Seu upgrade de carreira com método, constância e performance sustentável.</h1>
+        <p class="sub">
+          Uma jornada de semestre para organizar sua carreira, fortalecer sua rotina e acelerar sua senioridade
+          com entregas consistentes — sem burnout.
+        </p>
+
+        <p class="note" style="margin-top:-6px">
+          Programa conduzido por <b>Pedro Marins</b> e <b>Henrique de Andrade</b>, fundadores da CoDe Conhecimento
+          e criadores do DevUp.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#inscricao">Entrar na turma</a>
+          <a class="btn" href="#jornada">Ver a jornada</a>
+        </div>
+        <p class="note">100% remoto • Semestre guiado • Comunidade de colegas</p>
+
+        <div class="badge-row">
+          <div class="badge">Fluxo simples e forte</div>
+          <div class="badge">Constância aplicada</div>
+          <div class="badge">Plano de carreira real</div>
+          <div class="badge">Método Dev Hero</div>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="pill">O que você destrava</div>
+        <div class="list" style="margin-top:12px">
+          <div class="li">
+            <div class="dot"></div>
+            <div><b>Direção clara</b><br><span class="muted">plano de carreira e metas do semestre</span></div>
+          </div>
+          <div class="li">
+            <div class="dot"></div>
+            <div><b>Rotina consistente</b><br><span class="muted">Daily Monitor + reviews periódicos</span></div>
+          </div>
+          <div class="li">
+            <div class="dot"></div>
+            <div><b>Evolução contínua</b><br><span class="muted">acompanhamento semanal e mensal</span></div>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <div class="n">6 meses</div>
+            <div class="t">de jornada guiada</div>
+          </div>
+          <div class="stat">
+            <div class="n">2 Debuggers</div>
+            <div class="t">abertura + fechamento</div>
+          </div>
+          <div class="stat">
+            <div class="n">Reviews</div>
+            <div class="t">semanal + mensal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- O QUE É -->
+  <section id="como-funciona">
+    <div class="container">
+      <h2 class="section-title">O que é essa nova fase do DevUp?</h2>
+      <p class="section-sub">
+        Nesta repaginação, o DevUp (DevUpgrade) ficou mais direto e sem excesso de módulos:
+        você entra em um **fluxo semestral** com onboarding, método de performance,
+        plano de carreira, Daily Monitor e checkpoints recorrentes até o fechamento do semestre.
+      </p>
+
+      <div class="split" style="margin-top:16px">
+        <div>
+          <h3 style="margin:.2em 0 0;font-size:20px">Menos dispersão. Mais consistência.</h3>
+          <p class="muted">
+            O foco é te colocar em execução real.
+            Você define direção, organiza rotina, entra em ciclos de review e termina o semestre com upgrade claro.
+          </p>
+          <div class="badge-row">
+            <div class="badge">Direção</div>
+            <div class="badge">Rotina</div>
+            <div class="badge">Evolução contínua</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0">Entrega final do semestre</h3>
+          <div class="list">
+            <div class="li"><div class="dot"></div><div>Clareza do próximo nível de senioridade</div></div>
+            <div class="li"><div class="dot"></div><div>Portfólio e entregas mais fortes</div></div>
+            <div class="li"><div class="dot"></div><div>Rotina de performance sustentável</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JORNADA -->
+  <section id="jornada">
+    <div class="container">
+      <h2 class="section-title">A Jornada do Semestre (passo a passo)</h2>
+      <p class="section-sub">
+        Esse é o fluxo completo que você segue dentro do DevUp. Simples, repetível e poderoso.
+      </p>
+
+      <div class="grid-2">
+
+        <div class="card">
+          <div class="pill">Fase 1 — Entrada</div>
+          <div class="list">
+            <div class="li"><div class="dot"></div><div><b>Onboarding no programa</b><br><span class="muted">contexto, metas e acordos do semestre</span></div></div>
+            <div class="li"><div class="dot"></div><div><b>Curso Método Dev Hero</b><br><span class="muted">base de performance, entrega e evolução técnica</span></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="pill">Fase 2 — Direção</div>
+          <div class="list">
+            <div class="li"><div class="dot"></div><div><b>Exercício Plano de Carreira</b><br><span class="muted">masterclass regravada + live guiada</span></div></div>
+            <div class="li"><div class="dot"></div><div><b>Agendar Debugger da Carreira (abertura)</b><br><span class="muted">definição do plano de ação do semestre</span></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="pill">Fase 3 — Rotina</div>
+          <div class="list">
+            <div class="li"><div class="dot"></div><div><b>Exercício Planejamento do Daily Monitor</b><br><span class="muted">rotina personalizada de performance</span></div></div>
+            <div class="li"><div class="dot"></div><div><b>Entrar no fluxo de execução</b><br><span class="muted">com reviews e apoio coletivo</span></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="pill">Fase 4 — Evolução contínua</div>
+          <div class="list">
+            <div class="li"><div class="dot"></div><div><b>Reviews semanais</b><br><span class="muted">ajustes rápidos e constância</span></div></div>
+            <div class="li"><div class="dot"></div><div><b>Reviews mensais</b><br><span class="muted">balanceamento de metas e progresso</span></div></div>
+            <div class="li"><div class="dot"></div><div><b>Grupo dos colegas</b><br><span class="muted">comunidade, apoio e accountability</span></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="pill">Fase 5 — Fechamento</div>
+          <div class="list">
+            <div class="li"><div class="dot"></div><div><b>Agendar Debugger da Carreira (fechamento)</b><br><span class="muted">concluir o semestre e definir próximo salto</span></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>O grande ponto</h3>
+          <p class="muted">
+            Você não compra um monte de aulas.  
+            Você entra em um sistema de direção + rotina + reviews que te leva até o upgrade.
+          </p>
+          <div class="badge-row">
+            <div class="badge">Fluxo semestral</div>
+            <div class="badge">Direto ao ponto</div>
+            <div class="badge">Com acompanhamento</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTORES -->
+  <section id="mentores">
+    <div class="container">
+      <h2 class="section-title">Os Mentores do DevUp</h2>
+      <p class="section-sub">
+        O DevUp é liderado por dois mentores com experiência profunda em desenvolvimento de software,
+        formação de talentos e construção de carreiras de alta performance.
+      </p>
+
+      <div class="grid-2" style="margin-top:26px">
+
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="width:100%;height:260px;overflow:hidden">
+            <img src="FOTO_DO_PEDRO_AQUI" alt="Foto de Pedro Marins" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <div style="padding:20px">
+            <h3 style="margin-top:0">Pedro Marins</h3>
+            <p class="muted">
+              Cofundador da CoDe Conhecimento e referência na formação de desenvolvedores,
+              com quase duas décadas como professor, engenheiro de software e mentor.
+              Liderou formações que ajudaram centenas de profissionais a evoluírem na carreira.
+              No DevUp, Pedro garante clareza técnica, estrutura de aprendizado e execução consistente.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="padding:0;overflow:hidden">
+          <div style="width:100%;height:260px;overflow:hidden">
+            <img src="FOTO_DO_HENRIQUE_AQUI" alt="Foto de Henrique de Andrade" style="width:100%;height:100%;object-fit:cover">
+          </div>
+          <div style="padding:20px">
+            <h3 style="margin-top:0">Henrique de Andrade</h3>
+            <p class="muted">
+              Cofundador da CoDe e criador do DevUp. Doutorando no COPPE/UFRJ,
+              pesquisa alta performance, empregabilidade e bem-estar na era da IA.
+              Henrique traz a arquitetura do fluxo semestral, ferramenta de carreira
+              e protocolos de constância que sustentam performance sem burnout.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUEM É -->
+  <section id="para-quem-e">
+    <div class="container">
+      <h2 class="section-title">Para quem é essa turma?</h2>
+      <p class="section-sub">
+        Para devs que querem direção clara e evolução contínua, sem ficar pulando de conteúdo em conteúdo.
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>Júnior → Pleno</h3>
+          <p class="muted">Você já tem base, mas precisa de método, rotina e plano real de crescimento.</p>
+        </div>
+        <div class="card">
+          <h3>Pleno → Sênior</h3>
+          <p class="muted">Você entrega, mas quer estruturar um semestre de salto de senioridade.</p>
+        </div>
+        <div class="card">
+          <h3>Dev travado</h3>
+          <p class="muted">Você sabe que tem potencial, mas falta clareza, consistência e direção.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO INCLUSO RESUMIDO -->
+  <section id="conteudo">
+    <div class="container">
+      <h2 class="section-title">O que está incluso nesta oferta</h2>
+      <p class="section-sub">
+        Tudo o que você listou, organizado como pacote de entrega do semestre:
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="list">
+            <div class="li"><div class="dot"></div><div>Onboarding no programa</div></div>
+            <div class="li"><div class="dot"></div><div>Curso Método Dev Hero</div></div>
+            <div class="li"><div class="dot"></div><div>Exercício Plano de Carreira (+ masterclass regravada e live)</div></div>
+            <div class="li"><div class="dot"></div><div>Exercício Planejamento do Daily Monitor</div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="list">
+            <div class="li"><div class="dot"></div><div>Debugger da Carreira de abertura do semestre</div></div>
+            <div class="li"><div class="dot"></div><div>Reviews semanais</div></div>
+            <div class="li"><div class="dot"></div><div>Reviews mensais</div></div>
+            <div class="li"><div class="dot"></div><div>Grupo dos colegas</div></div>
+            <div class="li"><div class="dot"></div><div>Debugger da Carreira de fechamento do semestre</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section id="depoimentos">
+    <div class="container">
+      <h2 class="section-title">Depoimentos</h2>
+      <p class="section-sub">Aqui entram prints e vídeos reais dos alunos. (Troco assim que você mandar.)</p>
+
+      <div class="grid-3">
+        <div class="card">
+          <p>“Placeholder de depoimento. Resultado concreto: promoção, salário, clareza.”</p>
+          <p class="muted"><b>— Nome, Cargo</b></p>
+        </div>
+        <div class="card">
+          <p>“Placeholder de depoimento. Evolução de júnior/pleno para o próximo nível.”</p>
+          <p class="muted"><b>— Nome, Empresa</b></p>
+        </div>
+        <div class="card">
+          <p>“Placeholder de depoimento. Mais produtividade sem ansiedade.”</p>
+          <p class="muted"><b>— Nome, Dev</b></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFERTA -->
+  <section id="inscricao">
+    <div class="container">
+      <div class="cta-band">
+        <div>
+          <h2 class="section-title" style="margin-bottom:6px">Entre no fluxo do semestre</h2>
+          <p class="section-sub">
+            Se você quer passar os próximos 6 meses com direção clara e ritmo forte,
+            essa turma foi feita pra você.
+          </p>
+          <div class="badge-row">
+            <div class="badge">Fluxo semestral</div>
+            <div class="badge">Acompanhamento contínuo</div>
+            <div class="badge">Constância aplicada</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="pill">Investimento</div>
+          <div style="margin-top:8px">
+            <span class="strike">de R$ 8.000</span>
+            <span class="badge">por tempo limitado</span>
+          </div>
+          <div class="price">R$ 6.000</div>
+          <p class="muted" style="margin-top:-6px">ou 12x de R$ 620</p>
+
+          <div class="list">
+            <div class="li"><div class="dot"></div><div>Semestre guiado passo a passo</div></div>
+            <div class="li"><div class="dot"></div><div>Método Dev Hero + ferramentas</div></div>
+            <div class="li"><div class="dot"></div><div>Reviews semanais e mensais</div></div>
+            <div class="li"><div class="dot"></div><div>Debuggers de abertura e fechamento</div></div>
+          </div>
+
+          <a class="btn btn-primary" href="https://chk.eduzz.com/39VE78B7WR" style="width:100%;margin-top:12px">
+            Quero meu upgrade agora
+          </a>
+
+          <p class="note center" style="margin-top:8px">Garantia incondicional de 14 dias.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <h2 class="section-title">Perguntas frequentes</h2>
+
+      <div class="faq">
+        <details>
+          <summary>Isso é um curso ou um acompanhamento?</summary>
+          <p class="muted">
+            É uma jornada semestral guiada. Você tem conteúdos-chave + fluxo de execução com reviews e Debuggers.
+          </p>
+        </details>
+
+        <details>
+          <summary>Quanto tempo por semana eu preciso dedicar?</summary>
+          <p class="muted">Em média 3–5 horas por semana. O foco é constância, não maratona.</p>
+        </details>
+
+        <details>
+          <summary>As aulas ficam gravadas?</summary>
+          <p class="muted">Sim. Você tem acesso às gravações e materiais durante todo o semestre.</p>
+        </details>
+
+        <details>
+          <summary>Funciona para júnior e pleno?</summary>
+          <p class="muted">Sim. O fluxo serve para qualquer nível que queira upgrade real no semestre.</p>
+        </details>
+
+        <details>
+          <summary>E se eu não gostar?</summary>
+          <p class="muted">Você tem 14 dias de garantia incondicional, sem burocracia.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section>
+    <div class="container center">
+      <h2 class="section-title">Vamos fazer esse semestre valer.</h2>
+      <p class="section-sub" style="margin:0 auto 12px">
+        Direção clara + rotina forte + reviews = upgrade inevitável.
+      </p>
+      <a class="btn btn-primary" href="#inscricao">Entrar no DevUp</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center">
+      <div>© DevUp — Pedro Marins & Henrique de Andrade</div>
+      <div class="muted">Suporte: contato@seudominio.com</div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
