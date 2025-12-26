@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sessão DevUp de Recalibração de Carreira</title>
+  <meta name="description" content="Reunião estratégica individual de 2 horas para ajustar sua rota profissional e conquistar um upgrade de carreira em até 6 meses." />
+
+  <style>
+    :root{
+      --bg-0:#050B1A;
+      --bg-1:#08122B;
+      --card: rgba(255,255,255,.06);
+      --card-2: rgba(255,255,255,.09);
+      --border: rgba(255,255,255,.12);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --muted-2: rgba(255,255,255,.58);
+      --yellow:#F5C84C;
+      --green:#18C37E;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --radius-lg: 26px;
+      --max: 1080px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--font);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 650px at 20% 10%, rgba(55,130,255,.22), transparent 55%),
+        radial-gradient(900px 500px at 80% 15%, rgba(24,195,126,.14), transparent 55%),
+        radial-gradient(1100px 700px at 50% 100%, rgba(245,200,76,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg-0), var(--bg-1));
+      line-height: 1.45;
+    }
+
+    a{color:inherit}
+    .wrap{max-width: var(--max); margin:0 auto; padding: 28px 20px 64px;}
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding: 10px 0 24px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 750; letter-spacing:.2px;
+    }
+    .logo{
+      width:38px; height:38px; border-radius: 12px;
+      background:
+        radial-gradient(circle at 30% 25%, rgba(255,255,255,.22), transparent 55%),
+        linear-gradient(135deg, rgba(55,130,255,.9), rgba(24,195,126,.85));
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .brand small{display:block; color:var(--muted-2); font-weight:600; letter-spacing:.3px}
+    .badge{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius: 999px;
+      background: rgba(24,195,126,.14);
+      border: 1px solid rgba(24,195,126,.35);
+      color: rgba(255,255,255,.9);
+      font-weight: 700;
+      font-size: 13px;
+      gap:8px;
+      text-decoration:none;
+      white-space: nowrap;
+    }
+    .dot{
+      width:9px; height:9px; border-radius:99px; background: var(--green);
+      box-shadow: 0 0 0 4px rgba(24,195,126,.18);
+    }
+
+    .hero{
+      position:relative;
+      padding: 34px 28px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(900px 420px at 10% 0%, rgba(55,130,255,.28), transparent 60%),
+        radial-gradient(760px 380px at 90% 10%, rgba(245,200,76,.22), transparent 55%);
+      pointer-events:none;
+    }
+    .hero-inner{position:relative; display:grid; grid-template-columns: 1.25fr .75fr; gap:22px; align-items:start;}
+    @media (max-width: 900px){
+      .hero-inner{grid-template-columns:1fr; }
+    }
+
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(30px, 3.4vw, 48px);
+      letter-spacing: -0.6px;
+      line-height:1.05;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      color: var(--muted);
+      font-weight: 650;
+      margin-bottom: 14px;
+      font-size: 14px;
+      letter-spacing:.2px;
+    }
+    .kicker .pill{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(245,200,76,.14);
+      border: 1px solid rgba(245,200,76,.38);
+      color: rgba(255,255,255,.92);
+      font-weight: 800;
+      font-size: 12px;
+      white-space:nowrap;
+    }
+    .subhead{
+      margin: 0 0 18px;
+      font-size: clamp(16px, 1.5vw, 20px);
+      color: var(--muted);
+      max-width: 62ch;
+    }
+    .highlight{color: var(--yellow); font-weight: 800;}
+    .bullets{
+      display:grid; grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+      margin: 18px 0 22px;
+      padding: 0;
+      list-style:none;
+      color: rgba(255,255,255,.86);
+    }
+    @media (max-width: 700px){
+      .bullets{grid-template-columns:1fr}
+    }
+    .bullets li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .check{
+      width:18px; height:18px; border-radius: 6px;
+      background: rgba(24,195,126,.16);
+      border: 1px solid rgba(24,195,126,.35);
+      display:flex; align-items:center; justify-content:center;
+      flex: 0 0 auto;
+      margin-top: 1px;
+    }
+    .check:before{
+      content:"✓";
+      font-weight: 900;
+      font-size: 12px;
+      color: rgba(255,255,255,.9);
+      transform: translateY(-.5px);
+    }
+
+    .cta-card{
+      border-radius: var(--radius-lg);
+      background: rgba(0,0,0,.16);
+      border: 1px solid rgba(255,255,255,.14);
+      padding: 18px;
+      position:relative;
+    }
+    .cta-card h3{margin: 0 0 10px; font-size: 16px; letter-spacing:.1px}
+    .price{
+      display:flex; gap:12px; align-items:baseline; flex-wrap:wrap;
+      margin: 10px 0 6px;
+    }
+    .price .full{color: var(--muted-2); text-decoration: line-through; font-weight:700;}
+    .price .promo{font-size: 30px; font-weight: 900; letter-spacing:-.4px}
+    .price small{color: var(--muted); font-weight:650}
+    .note{
+      color: var(--muted);
+      font-size: 13px;
+      margin: 10px 0 14px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      width:100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(245,200,76,.95), rgba(245,200,76,.78));
+      color: rgba(0,0,0,.92);
+      font-weight: 900;
+      letter-spacing:.2px;
+      text-decoration:none;
+      box-shadow: 0 16px 40px rgba(245,200,76,.18);
+      border: 1px solid rgba(255,255,255,.10);
+      transition: transform .12s ease, filter .12s ease;
+    }
+    .btn:hover{transform: translateY(-1px); filter: brightness(1.02);}
+    .micro{
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: var(--muted-2);
+      text-align:center;
+    }
+    .coupon-badge{
+      margin-top: 12px;
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 16px;
+      background: rgba(24,195,126,.12);
+      border: 1px solid rgba(24,195,126,.28);
+      color: rgba(255,255,255,.88);
+      font-weight: 750;
+      font-size: 13px;
+      line-height: 1.25;
+    }
+    .coupon-icon{
+      width:30px; height:30px; border-radius: 999px;
+      background: rgba(24,195,126,.18);
+      border: 1px solid rgba(24,195,126,.38);
+      display:flex; align-items:center; justify-content:center;
+      flex: 0 0 auto;
+      box-shadow: 0 0 0 6px rgba(24,195,126,.08);
+    }
+    .coupon-icon:before{content:"%"; font-weight: 950; color: rgba(255,255,255,.92);}
+
+    section{margin-top: 26px;}
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 900px){
+      .grid{grid-template-columns: 1fr}
+    }
+    .card{
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 18px;
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size: 18px;
+      letter-spacing:-.2px;
+    }
+    .card p{margin: 0 0 10px; color: var(--muted);}
+    .card p:last-child{margin-bottom:0}
+
+    .steps{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .step{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      padding: 14px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.10);
+    }
+    .num{
+      width:32px; height:32px;
+      border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      font-weight: 950;
+      background: rgba(55,130,255,.16);
+      border: 1px solid rgba(55,130,255,.35);
+      flex: 0 0 auto;
+      color: rgba(255,255,255,.92);
+    }
+    .step strong{display:block; margin: 0 0 4px; font-size: 14px}
+    .step span{color: var(--muted); font-size: 13.5px}
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    @media (max-width: 700px){.two-col{grid-template-columns:1fr}}
+    .tag{
+      display:flex; gap:10px; align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.10);
+      color: rgba(255,255,255,.88);
+      font-weight: 650;
+    }
+    .tag b{color: rgba(255,255,255,.92)}
+    .tag .mini{
+      width:10px; height:10px; border-radius: 99px;
+      background: rgba(245,200,76,.9);
+      box-shadow: 0 0 0 4px rgba(245,200,76,.14);
+      margin-top: 4px;
+      flex: 0 0 auto;
+    }
+
+    .footer{
+      margin-top: 28px;
+      padding: 18px 0 0;
+      border-top: 1px solid rgba(255,255,255,.10);
+      color: var(--muted-2);
+      font-size: 12.5px;
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between;
+    }
+    .footer a{color: rgba(255,255,255,.72); text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+
+    /* subtle separators */
+    .divider{
+      height:1px;
+      background: rgba(255,255,255,.10);
+      margin: 16px 0;
+    }
+      
+            
+      /* CTA fixo no rodapé */
+.whatsapp-fixed {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  background: #25d366; /* verde WhatsApp */
+  color: white;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 9999;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.whatsapp-fixed:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.28);
+}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          DevUp
+          <small>Alta performance sem burnout</small>
+        </div>
+      </div>
+      <a class="badge" href="#inscricao">
+        <span class="dot" aria-hidden="true"></span>
+        Condições especiais
+      </a>
+    </div>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker">
+            <span class="pill">2 horas • 1:1 • online</span>
+            <span>Workshop preparatório incluído</span>
+          </div>
+
+          <h1>Sessão DevUp de <span class="highlight">Recalibração</span> de Carreira</h1>
+          <p class="subhead">
+            Reunião estratégica individual para ajustar sua rota profissional
+            <span class="highlight">e conquistar um upgrade de carreira em até 6 meses</span>.
+          </p>
+
+          <ul class="bullets">
+            <li><span class="check" aria-hidden="true"></span><span>Clareza de direção + prioridades</span></li>
+            <li><span class="check" aria-hidden="true"></span><span>Plano ajustado à sua realidade</span></li>
+            <li><span class="check" aria-hidden="true"></span><span>Menos dispersão, mais execução</span></li>
+            <li><span class="check" aria-hidden="true"></span><span>Alta performance sem burnout</span></li>
+          </ul>
+
+          <div class="divider"></div>
+
+          <p class="subhead" style="margin:0;">
+            Você faz seu rascunho seguindo nosso workshop no seu tempo e depois usa a sessão para <b>refinar, validar e aumentar sua probabilidade real de sucesso</b>.
+          </p>
+        </div>
+
+        <aside class="cta-card" id="inscricao">
+          <h3>Inscrição</h3>
+
+          <div class="price">
+            <span class="full">R$ 600</span>
+            <span class="promo">R$ 480</span>
+            <small>com cupom de 20%</small>
+          </div>
+
+          <div class="note">
+            * página para inscrição com condições especiais<br/>
+            Confirme na página seguinte se seu cupom está ativo.
+          </div>
+
+
+          <a class="btn" href="https://joindevup.com/inscricao-sessao" target="_blank" rel="noopener">
+            Quero recalibrar minha carreira!
+          </a>
+
+          <div class="micro">Reunião online • 2 horas • Gravação liberada</div>
+
+          <div class="coupon-badge" aria-label="Aviso sobre cupom">
+            <div class="coupon-icon" aria-hidden="true"></div>
+            <div>
+              Confirme na página seguinte se seu cupom está ativo!
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card">
+        <h2>O que é</h2>
+        <p>
+          Uma reunião estratégica individual de 2 horas, baseada no método DevUp, para alinhar
+          direção, metas, estratégia e tática — com foco em empregabilidade sustentável.
+        </p>
+        <p>
+          Não é “mais uma mentoria”. É um processo de <b>recalibração</b> para quem quer decidir melhor e executar com constância.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Quem conduz</h2>
+        <p><b>Henrique de Andrade</b> ou <b>Pedro Marins</b>, fundadores do DevUp.</p>
+        <p>
+          Especialistas em planejamento de carreira, produtividade e empregabilidade sustentável — com abordagem prática e orientada à execução.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Como funciona (passo a passo)</h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <strong>Acesso imediato ao workshop preparatório</strong>
+            <span>
+              “Planejando um upgrade na carreira em seis meses” — você chega com tudo pensado e preenchido.
+            </span>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <strong>Sessão estratégica individual (2h)</strong>
+            <span>
+              Você apresenta seu plano e refinamos juntos: ajustes, validações, pontos cegos, cortes de excesso e foco no que traz resultado.
+            </span>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <strong>Gravação liberada</strong>
+            <span>
+              A sessão é online e a gravação fica disponível para você reassistir quantas vezes quiser.
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <h2>O que você faz no workshop</h2>
+
+        <div class="two-col">
+          <div class="tag"><span class="mini" aria-hidden="true"></span><div><b>Definir uma Visão</b><br/><span style="color:var(--muted)">clareza do destino</span></div></div>
+          <div class="tag"><span class="mini" aria-hidden="true"></span><div><b>Meta SMART</b><br/><span style="color:var(--muted)">objetivo mensurável</span></div></div>
+          <div class="tag"><span class="mini" aria-hidden="true"></span><div><b>Estratégia 5W2H</b><br/><span style="color:var(--muted)">plano executável</span></div></div>
+          <div class="tag"><span class="mini" aria-hidden="true"></span><div><b>Tática (5 pilares)</b><br/><span style="color:var(--muted)">rotina e consistência</span></div></div>
+          <div class="tag"><span class="mini" aria-hidden="true"></span><div><b>Rede Small Acts</b><br/><span style="color:var(--muted)">crescer acompanhado</span></div></div>
+        </div>
+
+        <p style="margin-top:12px;color:var(--muted)">
+          O workshop prepara o terreno. A sessão é o momento de <b>recalibrar com precisão</b>.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Para quem é (e para quem não é)</h2>
+        <p><b>É para:</b> quem já está em movimento, mas precisa ajustar rota, priorizar e executar com clareza.</p>
+        <p><b>Não é para:</b> quem busca solução mágica ou não pretende colocar o plano em prática.</p>
+
+        <div class="divider"></div>
+
+        <p style="margin:0;color:var(--muted)">
+          Resultado esperado: <b>direção + plano + foco de execução</b> com alta performance sem burnout.
+        </p>
+      </div>
+    </section>
+
+    <section class="card" style="text-align:center">
+      <h2>Pronto para recalibrar?</h2>
+      <p style="max-width:70ch;margin: 0 auto 14px;color:var(--muted)">
+        Você não precisa mudar tudo. Precisa ajustar a rota certa, no momento certo — com método.
+      </p>
+      <a class="btn" href="https://joindevup.com/inscricao-sessao" target="_blank" rel="noopener">
+        Fazer minha inscrição!
+      </a>
+    
+    </section>
+
+
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+    
+        <a href="https://www.joindevup.com/whatsapp" 
+   class="whatsapp-fixed" 
+   target="_blank" 
+   rel="noopener noreferrer">
+  💬 WhatsApp!
+</a>
+    
+    
+</body>
+</html>
