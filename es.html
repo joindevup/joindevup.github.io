@@ -1,878 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>DevUp | Desarrolladores de alto rendimiento para la era de la IA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --devup-bg: #f5fbff;
-      --devup-navy: #031b33;
-      --devup-accent: #00b5ff;
-      --devup-muted: #6b7280;
-      --devup-radius: 16px;
-      --devup-max-width: 1080px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #ffffff 0, var(--devup-bg) 60%, #e6f3ff 100%);
-      color: var(--devup-navy);
-      line-height: 1.6;
-    }
-
-    a {
-      color: var(--devup-accent);
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .page {
-      max-width: var(--devup-max-width);
-      margin: 0 auto;
-      padding: 24px 18px 40px;
-    }
-
-    /* encabezado */
-
-    header.site-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      gap: 16px;
-    }
-
-    .logo-area {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-img {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: #ffffff;
-      box-shadow: 0 6px 16px rgba(3, 27, 51, 0.18);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      color: var(--devup-accent);
-      font-size: 1.1rem;
-    }
-
-    .logo-text {
-      font-weight: 800;
-      font-size: 1.4rem;
-      letter-spacing: -0.04em;
-    }
-    .logo-text span {
-      color: var(--devup-accent);
-    }
-
-    .lang-switch {
-      font-size: 0.9rem;
-      color: var(--devup-muted);
-    }
-    .lang-switch a {
-      margin-left: 8px;
-    }
-
-    /* hero */
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 28px;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(0, 181, 255, 0.08);
-      color: var(--devup-accent);
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .hero-tag-icon {
-      font-size: 1rem;
-    }
-
-    .hero h1 {
-      font-size: 2.1rem;
-      margin-bottom: 6px;
-      letter-spacing: -0.04em;
-    }
-
-    .hero h2 {
-      font-size: 1.18rem;
-      color: var(--devup-muted);
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      max-width: 640px;
-      font-size: 0.98rem;
-      color: var(--devup-muted);
-      margin-bottom: 16px;
-    }
-
-    .hero-highlight {
-      font-weight: 600;
-      color: var(--devup-navy);
-    }
-
-    .hero-illustration {
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 14px;
-      box-shadow:
-        0 18px 45px rgba(3, 27, 51, 0.16),
-        0 0 0 1px rgba(3, 27, 51, 0.04);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-illustration img {
-      max-width: 100%;
-      border-radius: 18px;
-      display: block;
-    }
-
-    /* secciones generales */
-
-    section {
-      margin-bottom: 40px;
-    }
-
-    section h3 {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    section h3 .section-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: rgba(0, 181, 255, 0.09);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.95rem;
-    }
-
-    section p {
-      font-size: 0.96rem;
-      color: var(--devup-muted);
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 14px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 14px;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: var(--devup-radius);
-      padding: 16px 16px 18px;
-      box-shadow:
-        0 12px 30px rgba(3, 27, 51, 0.08),
-        0 0 0 1px rgba(3, 27, 51, 0.04);
-    }
-
-    .card-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-
-    .icon-circle {
-      width: 30px;
-      height: 30px;
-      border-radius: 999px;
-      background: rgba(0, 181, 255, 0.09);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-    }
-
-    .card h4 {
-      font-size: 1.02rem;
-      margin: 0;
-    }
-
-    .card p {
-      font-size: 0.93rem;
-      color: var(--devup-muted);
-      margin-top: 4px;
-    }
-
-    .metric {
-      text-align: center;
-      padding: 18px 12px;
-    }
-    .metric strong {
-      display: block;
-      font-size: 1.6rem;
-      margin-bottom: 4px;
-    }
-    .metric span {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--devup-muted);
-    }
-
-    /* partners */
-
-    .partners-logos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .partner {
-      background: #ffffff;
-      border-radius: var(--devup-radius);
-      padding: 14px 16px;
-      box-shadow:
-        0 10px 26px rgba(3, 27, 51, 0.06),
-        0 0 0 1px rgba(3, 27, 51, 0.03);
-      font-size: 0.92rem;
-    }
-
-    .partner-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-
-    .partner-logo img {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      object-fit: cover;
-      background: #e5f2ff;
-    }
-
-    .partner strong {
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    /* fundadores */
-
-    .founders {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 18px;
-      margin-top: 16px;
-    }
-
-    .founder {
-      background: #ffffff;
-      border-radius: var(--devup-radius);
-      padding: 16px 16px 18px;
-      box-shadow:
-        0 10px 28px rgba(3, 27, 51, 0.06),
-        0 0 0 1px rgba(3, 27, 51, 0.03);
-      font-size: 0.95rem;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 12px;
-      align-items: center;
-    }
-
-    .founder-avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #e5f2ff;
-      flex-shrink: 0;
-    }
-
-    .founder-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .founder h4 {
-      font-size: 1.02rem;
-      margin-bottom: 2px;
-    }
-
-    .founder-role {
-      font-size: 0.82rem;
-      color: var(--devup-muted);
-      margin-bottom: 6px;
-    }
-
-    /* links dentro de fundadores */
-    .founder a {
-      color: var(--devup-navy) !important;
-      text-decoration: none;
-    }
-
-    .founder a:hover {
-      color: var(--devup-accent) !important;
-      text-decoration: underline;
-    }
-
-    /* contacto */
-
-    .contact {
-      background: #ffffff;
-      border-radius: var(--devup-radius);
-      padding: 18px 18px 20px;
-      box-shadow:
-        0 10px 28px rgba(3, 27, 51, 0.06),
-        0 0 0 1px rgba(3, 27, 51, 0.03);
-      margin-top: 8px;
-    }
-
-    .contact p {
-      margin-bottom: 10px;
-      font-size: 0.95rem;
-      color: var(--devup-muted);
-    }
-
-    .contact a.button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 6px;
-      padding: 10px 18px;
-      border-radius: 999px;
-      background: var(--devup-accent);
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 0.95rem;
-      box-shadow: 0 12px 30px rgba(0, 181, 255, 0.35);
-      text-decoration: none;
-    }
-
-    .contact a.button span.icon {
-      font-size: 1.1rem;
-    }
-
-    footer {
-      margin-top: 32px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(3, 27, 51, 0.08);
-      font-size: 0.85rem;
-      color: var(--devup-muted);
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 840px) {
-      .hero {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .grid-3,
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
-
-      header.site-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-    }
-
-    /* CTA fijo de WhatsApp */
-    .whatsapp-fixed {
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
-      background: #25d366;
-      color: white;
-      font-weight: 600;
-      padding: 12px 18px;
-      border-radius: 999px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.22);
-      text-decoration: none;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      z-index: 9999;
-      transition: transform .2s ease, box-shadow .2s ease;
-    }
-
-    .whatsapp-fixed:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 34px rgba(0,0,0,0.28);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DevUp | Ergonomía digital y rendimiento sostenible para empresas</title>
+<meta name="description" content="DevUp ayuda a empresas a mejorar la ergonomía digital, el bienestar, la productividad y el cumplimiento para equipos que trabajan con computadoras.">
+<link rel="alternate icon" href="img/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--fg:#0a0a0f;--fg-mid:#4a4a5a;--fg-muted:#8a8a9a;--bg:#faf9f7;--bg-dark:#0a0a0f;--accent:#667eea;--accent2:#764ba2;--green:#2ecc71;--red:#e74c3c;--orange:#f39c12;--serif:'Instrument Serif',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--glass:rgba(255,255,255,0.06);--glass-border:rgba(255,255,255,0.1)}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--fg);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .3s,backdrop-filter .3s}
+nav.scrolled{background:rgba(10,10,15,0.86);backdrop-filter:blur(20px)}
+.nav-logo{font-family:var(--serif);font-size:24px;color:#fff;text-decoration:none;letter-spacing:-0.5px}
+.nav-logo span{color:var(--accent);font-style:italic}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-link{color:rgba(255,255,255,0.62);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s}
+.nav-link:hover{color:#fff}
+.lang-switch{display:flex;gap:4px;padding:4px;border:1px solid rgba(255,255,255,0.16);border-radius:999px;background:rgba(255,255,255,0.05)}
+.lang-switch a{color:rgba(255,255,255,.62);text-decoration:none;font-size:11px;font-weight:700;padding:5px 8px;border-radius:999px;letter-spacing:.04em}
+.lang-switch a.active,.lang-switch a:hover{background:rgba(255,255,255,.12);color:#fff}
+.nav-cta{padding:10px 22px;border:1px solid rgba(255,255,255,0.25);border-radius:100px;color:#fff;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.3px;transition:all .25s}
+.nav-cta:hover{background:var(--accent);border-color:var(--accent)}
+section{min-height:100vh;position:relative;display:flex;align-items:center;justify-content:center;padding:100px 48px}
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}.reveal-d5{transition-delay:.5s}
+.hero{background:var(--bg-dark);flex-direction:column;text-align:center;gap:30px;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 30%,rgba(102,126,234,0.17),transparent),radial-gradient(ellipse 60% 50% at 70% 70%,rgba(118,75,162,0.12),transparent)}
+.hero-kicker{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);position:relative}
+.hero h1{font-family:var(--serif);font-size:clamp(44px,7vw,88px);line-height:1.04;color:#fff;max-width:980px;position:relative;letter-spacing:-1px}
+.hero h1 em{font-style:italic;color:var(--accent);position:relative}
+.hero-sub{font-size:clamp(16px,2vw,20px);color:rgba(255,255,255,0.58);max-width:720px;line-height:1.65;position:relative}
+.hero-cta{display:inline-flex;align-items:center;gap:10px;padding:16px 36px;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;text-decoration:none;border-radius:100px;font-size:15px;font-weight:700;letter-spacing:0.2px;position:relative;transition:transform .25s,box-shadow .25s}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(102,126,234,0.4)}
+.hero-badge{font-size:12px;color:rgba(255,255,255,0.38);position:relative;letter-spacing:0.4px}
+.demo{background:var(--bg-dark);min-height:auto;padding:0 48px 96px}
+.demo-content{max-width:820px;margin:0 auto;text-align:center}
+#demo-canvas{width:100%;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.42);border:1px solid rgba(255,255,255,0.08);display:block}
+.demo-caption{margin-top:16px;font-size:13px;color:rgba(255,255,255,0.42)}
+.problem,.features,.privacy,.recognition{background:var(--bg);flex-direction:column;gap:56px}
+.solution,.evidence,.faq{background:var(--bg-dark);color:#fff;flex-direction:column;gap:56px}
+.compliance{background:linear-gradient(135deg,#0f0c29,#1a1145,#24243e);color:#fff;flex-direction:column;gap:48px}
+.contact{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;flex-direction:column;gap:32px;text-align:center;min-height:82vh}
+.section-header{text-align:center;max-width:760px}
+.section-kicker{font-size:12px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+.section-title{font-family:var(--serif);font-size:clamp(34px,5vw,58px);line-height:1.1;letter-spacing:-0.5px;color:var(--fg)}
+.solution .section-title,.evidence .section-title,.compliance .section-title,.faq .section-title,.contact .section-title{color:#fff}
+.section-title em{font-style:italic;color:var(--accent)}
+.section-sub{margin-top:16px;font-size:17px;color:var(--fg-mid);line-height:1.65}
+.solution .section-sub,.evidence .section-sub,.compliance .section-sub,.faq .section-sub,.contact .section-sub{color:rgba(255,255,255,0.62)}
+.problem-grid,.compliance-grid,.recognition-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1100px;width:100%}
+.problem-card,.recognition-card{background:#fff;border-radius:20px;padding:34px 30px;border:1px solid rgba(0,0,0,0.06);transition:transform .3s,box-shadow .3s}
+.problem-card:hover,.recognition-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.08)}
+.problem-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:20px;background:rgba(102,126,234,0.1)}
+.problem-card h3,.recognition-card h3{font-family:var(--serif);font-size:24px;margin-bottom:10px;letter-spacing:-0.3px}
+.problem-card p,.recognition-card p{font-size:14px;color:var(--fg-mid);line-height:1.65}
+.recognition-card span{display:block;font-size:13px;font-weight:700;color:var(--accent);margin-bottom:12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;width:100%}
+.step-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:36px 28px;text-align:center;backdrop-filter:blur(10px)}
+.step-num{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;margin-bottom:16px}
+.step-card h3{font-family:var(--serif);font-size:22px;margin-bottom:8px}
+.step-card p{font-size:13px;color:rgba(255,255,255,0.56);line-height:1.6}
+.checks-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:760px;margin-top:0}
+.check-tag{padding:8px 16px;border-radius:100px;background:var(--glass);border:1px solid var(--glass-border);font-size:12px;font-weight:600;color:rgba(255,255,255,0.75);backdrop-filter:blur(10px)}
+.features-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:960px;width:100%}
+.feature-card{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:18px;padding:28px;display:flex;gap:16px;align-items:flex-start;transition:transform .3s,box-shadow .3s}
+.feature-card:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,0.06)}
+.feature-icon{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;color:#fff}
+.feature-card h3{font-size:15px;font-weight:700;margin-bottom:4px;letter-spacing:-0.2px}
+.feature-card p{font-size:13px;color:var(--fg-mid);line-height:1.55}
+.compliance-grid{grid-template-columns:repeat(2,1fr);max-width:940px}
+.compliance-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:28px;backdrop-filter:blur(10px)}
+.compliance-card .tag{display:inline-block;padding:4px 12px;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:0.5px;margin-bottom:12px;background:rgba(102,126,234,0.2);color:#aebcff}
+.compliance-card h3{font-family:var(--serif);font-size:23px;margin-bottom:8px}
+.compliance-card p{font-size:13px;color:rgba(255,255,255,0.58);line-height:1.6}
+.evidence-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1120px;width:100%}
+.evidence-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;padding:30px 24px;text-align:center;backdrop-filter:blur(10px)}
+.evidence-icon{font-size:40px;margin-bottom:14px}
+.evidence-card h4{font-family:var(--serif);font-size:22px;color:#fff;margin-bottom:8px}
+.evidence-card p{font-size:13px;color:rgba(255,255,255,0.56);line-height:1.6}
+.privacy-flow{display:flex;align-items:center;gap:18px;max-width:880px;flex-wrap:wrap;justify-content:center}
+.flow-node{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:18px;padding:24px 28px;text-align:center;min-width:150px}
+.flow-node h4{font-size:14px;font-weight:800;margin-bottom:4px}
+.flow-node p{font-size:12px;color:var(--fg-muted)}
+.flow-arrow{font-size:24px;color:var(--accent);font-weight:300}
+.privacy-badges{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.priv-badge{padding:10px 18px;border-radius:100px;background:#fff;border:1px solid rgba(0,0,0,0.06);font-size:13px;font-weight:600;color:var(--fg);display:flex;align-items:center;gap:8px}
+.priv-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green)}
+.contact-actions{display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+.contact-btn{padding:16px 36px;border-radius:100px;font-size:15px;font-weight:800;text-decoration:none;transition:all .25s;letter-spacing:0.2px;background:#fff;color:var(--accent)}
+.contact-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,0.2)}
+footer{background:var(--bg-dark);color:rgba(255,255,255,0.35);text-align:center;padding:32px 48px;font-size:12px;border-top:1px solid rgba(255,255,255,0.06)}
+@media(max-width:940px){.nav-link{display:none}.problem-grid,.steps,.compliance-grid,.recognition-grid{grid-template-columns:1fr}.evidence-grid{grid-template-columns:repeat(2,1fr)}section{padding:90px 24px}nav{padding:16px 20px}.nav-right{gap:10px}.nav-cta{display:none}}
+@media(max-width:620px){.features-grid,.evidence-grid{grid-template-columns:1fr}.hero h1{font-size:42px}.flow-arrow{transform:rotate(90deg)}}
+</style>
 </head>
 <body>
-  <div class="page">
-
-    <!-- encabezado -->
-    <header class="site-header">
-      <div class="logo-area">
-        <div class="logo-img">D!</div>
-        <div class="logo-text">Dev<span>Up</span>!</div>
-      </div>
-      <div class="lang-switch">
-        Idioma:
-        <a href="en.html">EN</a> ·
-        <a href="index.html">PT</a> ·
-        <a href="es.html"><strong>ES</strong></a>
-      </div>
-    </header>
-
-    <!-- hero institucional con imagen -->
-    <section class="hero">
-      <div>
-        <div class="hero-tag">
-          <span class="hero-tag-icon">⚙️</span>
-          Desarrolladores para la era de la IA
-        </div>
-        <h1>Alto rendimiento y empleabilidad real sin burnout para devs</h1>
-        <h2>Una metodología de formación que une excelencia técnica, estrategia de carrera y bienestar.</h2>
-        <p>
-          <span class="hero-highlight">DevUp</span> es un ecosistema de desarrollo continuo para
-          desarrolladores de software, basado en investigaciones científicas, datos de mercado y aprendizajes prácticos.
-          Ayudamos a los devs a mantenerse relevantes a lo largo de su carrera y a las empresas a construir equipos de ingeniería
-          más maduros y sostenibles.
-        </p>
-      </div>
-
-      <div class="hero-illustration">
-        <!-- Imagen de la marca DevUp -->
-        <img
-          src="img/devup-logo-small.jpeg"
-          alt="Logo del programa DevUp"
-        />
-      </div>
-    </section>
-
-    <!-- sobre -->
-    <section id="sobre">
-      <h3>
-        <span class="section-icon">📚</span>
-        Sobre DevUp
-      </h3>
-      <p>
-        DevUp nace en la intersección entre la investigación académica, la práctica de mercado y la innovación educativa.
-        Es el resultado de años de trabajo con formaciones en desarrollo de software, mentorías de carrera
-        e investigación sobre alto rendimiento, empleabilidad y bienestar en el área de tecnología.
-      </p>
-      <p>
-        Nuestro compromiso es formar desarrolladores capaces de manejar contextos complejos, colaborar con la IA
-        de forma inteligente y construir trayectorias profesionales sostenibles, sin renunciar a la salud mental
-        ni a la calidad de vida.
-      </p>
-    </section>
-
-    <!-- problemas -->
-    <section id="problemas">
-      <h3>
-        <span class="section-icon">🚧</span>
-        Desafíos que abordamos
-      </h3>
-
-      <div class="grid-3">
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">🎯</div>
-            <h4>Formaciones superficiales</h4>
-          </div>
-          <p>
-            Exceso de cursos centrados solo en herramientas y sintaxis, sin desarrollar pensamiento crítico,
-            visión de producto ni autonomía en los devs.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">📉</div>
-            <h4>Carreras estancadas</h4>
-          </div>
-          <p>
-            Profesionales con buena base técnica que no consiguen avanzar de nivel, posicionarse mejor
-            o navegar un mercado en constante transformación.
-          </p>
-        </div>
-
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">🔥</div>
-            <h4>Burnout y agotamiento</h4>
-          </div>
-          <p>
-            Equipos bajo presión constante, con poca estructura para cuidar del bienestar,
-            de los límites saludables y de la priorización.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- solución -->
-    <section id="solucao">
-      <h3>
-        <span class="section-icon">🧩</span>
-        Lo que ofrecemos
-      </h3>
-      <p>
-        DevUp combina dirección estratégica, estructura sólida y acompañamiento humano para que
-        los desarrolladores avancen con constancia, propósito y salud mental en la era de la IA.
-      </p>
-
-      <div class="grid-3">
-
-        <!-- DIRECCIÓN -->
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">🧭</div>
-            <h4>Dirección</h4>
-          </div>
-          <p>
-            Claridad de camino y metas bien definidas.  
-            Planificación de carrera, ejercicios estratégicos y definición de objetivos
-            que tengan sentido para cada dev según su momento.
-          </p>
-          <p style="margin-top:6px;">
-            Incluye metodologías de definición de metas, roadmap de carrera y espacios de alineamiento profundo.
-          </p>
-        </div>
-
-        <!-- ESTRUCTURA -->
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">🏗️</div>
-            <h4>Estructura</h4>
-          </div>
-          <p>
-            Un sistema de herramientas que transforma intención en constancia:
-            Daily Monitor, rutinas diarias, rituales semanales, seguimiento,
-            microhábitos (Small Acts) y revisiones estructuradas.
-          </p>
-          <p style="margin-top:6px;">
-            La estructura garantiza que el plan no se quede en el papel: organiza, mide,
-            calibra y sostiene el progreso.
-          </p>
-        </div>
-
-        <!-- ACOMPAÑAMIENTO -->
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">🤝</div>
-            <h4>Acompañamiento</h4>
-          </div>
-          <p>
-            Mentoría continua, comunidad madura y revisiones personalizadas para asegurar
-            avances consistentes sin riesgo de burnout.
-          </p>
-          <p style="margin-top:6px;">
-            Revisiones semanales, revisiones mensuales (PDCA), orientación individual, MasterClasses bajo demanda
-            y conexión con profesionales experimentados de la red.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- para quién es -->
-    <section id="publicos">
-      <h3>
-        <span class="section-icon">🎯</span>
-        Para quién es DevUp
-      </h3>
-      <p>
-        DevUp atiende tanto a desarrolladores individuales como a empresas, aplicando la misma tríada:
-        <strong>Dirección, Estructura y Acompañamiento</strong>, adaptada a cada contexto.
-      </p>
-
-      <div class="grid-2">
-
-        <!-- B2C -->
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">👤</div>
-            <h4>Desarrolladores (B2C)</h4>
-          </div>
-          <p>
-            Para profesionales que quieren avanzar con claridad y consistencia en su carrera.
-            DevUp ofrece dirección para definir metas realistas, estructura para organizar las rutinas
-            y desarrollar constancia, y acompañamiento humano para crecer sin burnout.
-          </p>
-          <p style="margin-top:6px;">
-            Ideal para devs que buscan aumentar su salario, cambiar de empresa, trabajar en remoto,
-            conquistar oportunidades internacionales o consolidar su puesto actual con madurez.
-          </p>
-        </div>
-
-        <!-- B2B -->
-        <div class="card">
-          <div class="card-header">
-            <div class="icon-circle">🏢</div>
-            <h4>Empresas y equipos de ingeniería (B2B)</h4>
-          </div>
-          <p>
-            Para organizaciones que desean elevar el nivel de sus equipos de ingeniería.  
-            La tríada de DevUp estructura el desarrollo continuo: dirección para definir la seniority esperada,
-            estructura para crear rituales, herramientas y procesos, y acompañamiento para sostener
-            el crecimiento emocional y técnico de los devs.
-          </p>
-          <p style="margin-top:6px;">
-            Ideal para empresas que quieren reducir el turnover, acelerar la madurez técnica de los equipos,
-            fortalecer la autonomía y crear entornos de ingeniería más saludables.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- impacto -->
-    <section id="impacto">
-      <h3>
-        <span class="section-icon">📊</span>
-        Impacto y resultados
-      </h3>
-      <div class="grid-3">
-        <div class="card metric">
-          <div class="icon-circle" style="margin: 0 auto 8px;">🚀</div>
-          <strong>100%</strong>
-          <span>
-            de los participantes de la cohorte beta reportaron avance en su carrera en
-            hasta 6 meses (promoción, cambio de puesto o mejora de condiciones).
-          </span>
-        </div>
-        <div class="card metric">
-          <div class="icon-circle" style="margin: 0 auto 8px;">👩‍💻</div>
-          <strong>1.500+ devs</strong>
-          <span>
-            desarrolladores impactados a través de formaciones, mentorías
-            y programas enfocados en empleabilidad y alto rendimiento.
-          </span>
-        </div>
-        <div class="card metric">
-          <div class="icon-circle" style="margin: 0 auto 8px;">🧪</div>
-          <strong>Metodología científica</strong>
-          <span>
-            Metodología fundamentada en investigaciones sobre rendimiento,
-            empleabilidad y bienestar en la era de la IA.
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <!-- alianzas -->
-    <section id="parceiros">
-      <h3>
-        <span class="section-icon">🌐</span>
-        Alianzas y reconocimiento
-      </h3>
-      <p>
-        DevUp se apoya en un ecosistema de socios que conectan mercado, innovación y desarrollo de talento.
-      </p>
-
-      <div class="partners-logos">
-
-        <div class="partner">
-          <div class="partner-logo">
-            <!-- logo Maravalley -->
-            <img src="img/maravalley.jpg" alt="Logo Maravalley.Rio" />
-            <div>
-              <strong>Maravalley.Rio</strong>
-              <span>Hub de innovación y tecnología</span>
-            </div>
-          </div>
-          <p>
-            Ecosistema de innovación en Río de Janeiro que conecta startups, investigadores y empresas de tecnología,
-            acelerando soluciones digitales y nuevas formas de aprender y trabajar.
-          </p>
-        </div>
-
-        <div class="partner">
-          <div class="partner-logo">
-            <!-- logo Web Summit -->
-            <img src="img/websummit.jpg" alt="Logo Web Summit Lisboa" />
-            <div>
-              <strong>Web Summit Lisboa</strong>
-              <span>Evento internacional</span>
-            </div>
-          </div>
-          <p>
-            DevUp fue presentado en el Web Summit, uno de los mayores eventos de tecnología del mundo,
-            destacándose como una iniciativa brasileña de formación de desarrolladores para la era de la IA.
-          </p>
-        </div>
-
-        <div class="partner">
-          <div class="partner-logo">
-            <!-- logo CoDe -->
-            <img src="img/code.jpeg" alt="Logo CoDe Conhecimento" />
-            <div>
-              <strong>CoDe Conhecimento</strong>
-              <span>Edtech asociada</span>
-            </div>
-          </div>
-          <p>
-            Edtech enfocada en empleabilidad en el área de desarrollo de software,
-            cofundada por los creadores de DevUp, con un historial de cientos de devs colocados en el mercado.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- fundadores -->
-    <section id="fundadores">
-      <h3>
-        <span class="section-icon">👥</span>
-        Fundadores
-      </h3>
-      <div class="founders">
-        <div class="founder">
-          <div class="founder-avatar">
-            <a href="https://www.linkedin.com/in/henrique-de-andrade/" target="_blank" rel="noopener noreferrer">
-              <img src="img/henrique.jpg" alt="Foto de Henrique Andrade" />
-            </a>
-          </div>
-          <div>
-            <a href="https://www.linkedin.com/in/henrique-de-andrade/" target="_blank" rel="noopener noreferrer">
-              <h4>Henrique Rabelo de Andrade</h4>
-            </a>
-            <div class="founder-role"><i>M.Sc. Ingeniería de Computación – PESC/COPPE/UFRJ</i></div>
-            <p>
-              Investigador en sistemas de información, rendimiento y bienestar de desarrolladores
-              en la era de la IA. Con casi dos décadas de experiencia en tecnología e innovación,
-              lideró equipos de ingeniería y datos en diferentes sectores.
-            </p>
-          </div>
-        </div>
-
-        <div class="founder">
-          <div class="founder-avatar">
-            <a href="https://www.linkedin.com/in/pedromarins/" target="_blank" rel="noopener noreferrer">
-              <img src="img/pedro.jpeg" alt="Foto de Pedro Marins" />
-            </a>
-          </div>
-          <div>
-            <a href="https://www.linkedin.com/in/pedromarins/" target="_blank" rel="noopener noreferrer">
-              <h4>Pedro Marins</h4>
-            </a>
-            <div class="founder-role"><i>MBA Gestión del Conocimiento – CRIE/COPPE/UFRJ</i></div>
-            <p>
-              Desarrollador, educador y emprendedor, cofundador de CoDe Conhecimento.
-              Con más de 500 mil estudiantes en cursos en línea, es referencia en enseñanza de front-end
-              y en la formación de devs preparados para el mercado.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- contacto -->
-    <section id="contato">
-      <h3>
-        <span class="section-icon">📩</span>
-        Contacto
-      </h3>
-
-      <div class="grid-2">
-
-        <!-- Caja 1 – Organizaciones -->
-        <div class="contact card">
-          <h4 style="margin-bottom:10px;">Para organizaciones</h4>
-          <p>
-            Si representas a una empresa, universidad, hub de innovación o comunidad de desarrolladores
-            y quieres entender mejor cómo DevUp puede apoyar el desarrollo de talento en tecnología,
-            estaremos encantados de conversar.
-          </p>
-          <p style="margin-bottom:14px;">
-            Podemos explorar alianzas para programas corporativos, grupos piloto,
-            iniciativas de bienestar, retención de talento y acciones de empleabilidad en la era de la IA.
-          </p>
-
-          <a class="button" href="https://www.joindevup.com/whatsapp-corporativo" target="_blank" rel="noopener noreferrer">
-            <span class="icon">💬</span> Hablar con el equipo DevUp
-          </a>
-        </div>
-
-        <!-- Caja 2 – Desarrolladores -->
-        <div class="contact card">
-          <h4 style="margin-bottom:10px;">Para desarrolladores</h4>
-          <p>
-            Si eres un dev comprometido con tu carrera y quieres cuidar tu crecimiento con método, claridad,
-            estructura y acompañamiento, haz clic abajo para conocer más detalles del programa DevUp.
-          </p>
-          <p style="margin-bottom:14px;">
-            Si quieres participar, podrás inscribirte en el proceso selectivo: analizaremos con atención tus respuestas
-            para entender tus objetivos, tu momento profesional y verificar si ahora tiene sentido que formes parte de DevUp.
-          </p>
-
-          <a class="button" href="programa" target="_blank" rel="noopener noreferrer">
-            <span class="icon">🚀</span> Conocer el programa DevUp
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <footer>
-      <div>© 2025 DevUp. Todos los derechos reservados.</div>
-      <div>Construido en Brasil para desarrolladores de todo el mundo.</div>
-    </footer>
+<nav id="nav">
+  <a href="#inicio" class="nav-logo">Dev<span>Up</span></a>
+  <div class="nav-right">
+    <a href="#como-funciona" class="nav-link">Cómo funciona</a><a href="#compliance" class="nav-link">Compliance</a><a href="#diferenciales" class="nav-link">Diferenciales</a>
+    <div class="lang-switch" aria-label="Language selector">
+      <a href="index.html" class="">PT</a>
+      <a href="en.html" class="">EN</a>
+      <a href="es.html" class="active">ES</a>
+    </div>
+    <a href="#contato" class="nav-cta">Agendar una demo</a>
   </div>
+</nav>
 
-  <a href="https://www.joindevup.com/whatsapp" 
-     class="whatsapp-fixed" 
-     target="_blank" 
-     rel="noopener noreferrer">
-    💬 WhatsApp
-  </a>
-
+<section class="hero" id="inicio">
+  <span class="hero-kicker reveal">Ergonomía digital para trabajo en computadoras</span>
+  <h1 class="reveal reveal-d1">Tu equipo protegido.<br>Tu empresa en <em>cumplimiento</em>.</h1>
+  <p class="hero-sub reveal reveal-d2">DevUp ayuda a empresas a cuidar la postura, la ergonomía digital y el rendimiento sostenible de personas que pasan muchas horas trabajando en computadoras — con alertas en tiempo real, indicadores comportamentales e informes para apoyar el cumplimiento ocupacional.</p>
+  <a href="#contato" class="hero-cta reveal reveal-d3">Agendar una demo <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+  <p class="hero-badge reveal reveal-d4">Para equipos presenciales, híbridos o remotos que trabajan frente a pantallas.</p>
+</section>
+<section class="demo" id="demo">
+  <div class="demo-content reveal">
+    <canvas id="demo-canvas" width="480" height="360"></canvas>
+    <p class="demo-caption">Monitoreo de postura en tiempo real vía webcam, con procesamiento local y foco en privacidad.</p>
+  </div>
+</section>
+<script src="demo-anim.js"></script>
+<section class="problem" id="problema">
+  <div class="section-header reveal"><div class="section-kicker">El problema</div><h2 class="section-title">El trabajo en computadoras tiene un costo <em>invisible</em></h2><p class="section-sub">Dolores, fatiga, mala postura y exceso de tiempo sentado afectan la productividad, el bienestar y la exposición de la empresa a riesgos ocupacionales.</p></div>
+  <div class="problem-grid"><div class="problem-card reveal reveal-d1"><div class="problem-icon">🪑</div><h3>Ergonomía diaria</h3><p>La mayoría de las empresas aborda la ergonomía con capacitaciones puntuales, sin seguimiento continuo de la rutina real.</p></div><div class="problem-card reveal reveal-d2"><div class="problem-icon">🧠</div><h3>Fatiga y productividad</h3><p>El trabajo intenso frente a pantallas exige pausas, conciencia corporal e intervenciones ligeras durante el día.</p></div><div class="problem-card reveal reveal-d3"><div class="problem-icon">⚖️</div><h3>Cumplimiento ocupacional</h3><p>Las empresas necesitan demostrar buenas prácticas, registrar acciones preventivas y apoyar políticas de salud y seguridad laboral.</p></div></div>
+</section>
+<section class="solution" id="como-funciona">
+  <div class="section-header reveal"><div class="section-kicker">La solución</div><h2 class="section-title">Una capa continua de cuidado para equipos digitales</h2><p class="section-sub">DevUp utiliza visión computacional e inteligencia comportamental para apoyar a colaboradores mientras trabajan — sin transformar el cuidado en vigilancia.</p></div>
+  <div class="steps"><div class="step-card reveal reveal-d1"><div class="step-num">1</div><h3>Detecta señales posturales</h3><p>Acompaña referencias corporales por la webcam durante el uso de la computadora.</p></div><div class="step-card reveal reveal-d2"><div class="step-num">2</div><h3>Interviene en el momento adecuado</h3><p>Genera alertas y recomendaciones simples para pausas, ajuste postural y autocuidado.</p></div><div class="step-card reveal reveal-d3"><div class="step-num">3</div><h3>Documenta buenas prácticas</h3><p>Ofrece indicadores e informes para apoyar gestión, RR. HH. y compliance.</p></div></div>
+  <div class="checks-row reveal reveal-d4"><span class="check-tag">Nivel de los ojos</span><span class="check-tag">Cabeza adelantada</span><span class="check-tag">Hombros</span><span class="check-tag">Distancia de pantalla</span><span class="check-tag">Rotación corporal</span><span class="check-tag">Tiempo sentado</span><span class="check-tag">Recordatorios de pausa</span><span class="check-tag">Puntuación diaria</span><span class="check-tag">Informes</span></div>
+</section>
+<section class="features" id="empresas">
+  <div class="section-header reveal"><div class="section-kicker">Para empresas</div><h2 class="section-title">Ergonomía, bienestar y compliance en una sola plataforma</h2></div>
+  <div class="features-grid"><div class="feature-card reveal reveal-d1"><div class="feature-icon">🔔</div><div><h3>Alertas inteligentes</h3><p>Intervenciones ligeras durante el trabajo para reducir el tiempo en posiciones inadecuadas.</p></div></div><div class="feature-card reveal reveal-d2"><div class="feature-icon">📊</div><div><h3>Dashboards corporativos</h3><p>Indicadores agregados para RR. HH., gestión y salud ocupacional, sin exponer imágenes de colaboradores.</p></div></div><div class="feature-card reveal reveal-d3"><div class="feature-icon">📝</div><div><h3>Informes de cumplimiento</h3><p>Documentación de acciones, adhesión y buenas prácticas para apoyar políticas internas y auditorías.</p></div></div><div class="feature-card reveal reveal-d4"><div class="feature-icon">🌎</div><div><h3>Uso en cualquier modelo de trabajo</h3><p>Funciona para equipos presenciales, híbridos y remotos que usan computadoras todos los días.</p></div></div><div class="feature-card reveal reveal-d5"><div class="feature-icon">🔒</div><div><h3>Privacidad por diseño</h3><p>El foco está en metadatos comportamentales e indicadores agregados — no en almacenar video de la webcam.</p></div></div><div class="feature-card reveal reveal-d1"><div class="feature-icon">💼</div><div><h3>Experiencia B2B</h3><p>Una solución pensada para empresas que necesitan cuidar personas, productividad y riesgo ocupacional.</p></div></div></div>
+</section>
+<section class="compliance" id="compliance">
+  <div class="section-header reveal"><div class="section-kicker">Compliance</div><h2 class="section-title">Una herramienta para apoyar obligaciones de salud y seguridad laboral</h2><p class="section-sub">DevUp ayuda a las empresas a estructurar evidencias de cuidado ergonómico y bienestar en el trabajo con computadoras. En Brasil, se conecta con Normas Regulamentadoras como la NR-17; internacionalmente, dialoga con prácticas de occupational health, workplace wellbeing y ESG.</p></div>
+  <div class="compliance-grid"><div class="compliance-card reveal reveal-d1"><span class="tag">NR-17</span><h3>Ergonomía digital</h3><p>Seguimiento de hábitos, pausas y señales posturales para apoyar programas de ergonomía.</p></div><div class="compliance-card reveal reveal-d2"><span class="tag">Salud ocupacional</span><h3>Prevención y documentación</h3><p>Registros e informes para demostrar acciones preventivas y cultura de cuidado.</p></div><div class="compliance-card reveal reveal-d3"><span class="tag">Europa y mercados globales</span><h3>Workplace wellbeing</h3><p>Adecuado para ambientes corporativos que necesitan demostrar buenas prácticas de bienestar y seguridad.</p></div><div class="compliance-card reveal reveal-d4"><span class="tag">Teletrabajo y oficina</span><h3>Un producto para pantallas</h3><p>Aplicable tanto a equipos remotos como a personas que trabajan presencialmente en computadoras.</p></div></div>
+</section>
+<section class="evidence" id="diferenciais">
+  <div class="section-header reveal"><div class="section-kicker">Diferenciales</div><h2 class="section-title">Más que un software de postura</h2></div>
+  <div class="evidence-grid"><div class="evidence-card reveal reveal-d1"><div class="evidence-icon">🎓</div><h4>Ciencia aplicada</h4><p>DevUp nace conectado a la investigación académica en ergonomía digital, sostenibilidad cognitiva, trabajo en computadoras e interacción humano-IA.</p></div><div class="evidence-card reveal reveal-d2"><div class="evidence-icon">📈</div><h4>Datos comportamentales</h4><p>Sin almacenar imágenes de la cámara, la plataforma puede generar metadatos agregados sobre postura, pausas, fatiga y hábitos de trabajo.</p></div><div class="evidence-card reveal reveal-d3"><div class="evidence-icon">⚙️</div><h4>Automatización inteligente</h4><p>Informes, alertas, seguimiento y soporte pueden automatizarse para reducir el esfuerzo operativo de las empresas.</p></div><div class="evidence-card reveal reveal-d4"><div class="evidence-icon">🚀</div><h4>Historial CoDe/DevUp</h4><p>El equipo viene de un ecosistema que ya realizó más de 1.200 ventas high-ticket y formó a cientos de profesionales de tecnología.</p></div></div>
+</section>
+<section class="privacy" id="privacidade">
+  <div class="section-header reveal"><div class="section-kicker">Privacidad</div><h2 class="section-title">Cuidado sin vigilancia</h2><p class="section-sub">El producto está diseñado para apoyar al colaborador, no para fiscalizarlo. El uso corporativo debe priorizar indicadores agregados, transparencia y consentimiento.</p></div>
+  <div class="privacy-flow reveal reveal-d1"><div class="flow-node"><h4>Webcam</h4><p>señal local</p></div><div class="flow-arrow">→</div><div class="flow-node"><h4>Procesamiento</h4><p>en el dispositivo</p></div><div class="flow-arrow">→</div><div class="flow-node"><h4>Metadatos</h4><p>indicadores</p></div><div class="flow-arrow">→</div><div class="flow-node"><h4>Empresa</h4><p>datos agregados</p></div></div>
+  <div class="privacy-badges reveal reveal-d2"><span class="priv-badge"><span class="dot"></span>Sin almacenar video bruto</span><span class="priv-badge"><span class="dot"></span>Indicadores agregados</span><span class="priv-badge"><span class="dot"></span>Privacidad por diseño</span><span class="priv-badge"><span class="dot"></span>Transparencia para colaboradores</span></div>
+</section>
+<section class="recognition" id="historico">
+  <div class="section-header reveal"><div class="section-kicker">Alianzas y reconocimiento</div><h2 class="section-title">Un historial que valida la ejecución</h2><p class="section-sub">DevUp se apoya en un ecosistema que conecta mercado, innovación y desarrollo de talentos.</p></div>
+  <div class="recognition-grid"><div class="recognition-card reveal reveal-d1"><h3>Maravalley.Rio</h3><span>Hub de innovación y tecnología</span><p>Ecosistema de innovación de la ciudad de Río de Janeiro que conecta startups, investigadores y empresas de tecnología.</p></div><div class="recognition-card reveal reveal-d2"><h3>Web Summit Lisboa</h3><span>Evento internacional</span><p>DevUp fue presentado en Web Summit Lisboa como iniciativa brasileña de formación en tecnología para la era de la IA.</p></div><div class="recognition-card reveal reveal-d3"><h3>CoDe Conhecimento</h3><span>Edtech aliada</span><p>Edtech cofundada por los creadores de DevUp, con historial en formación, empleabilidad y colocación de cientos de profesionales en el mercado.</p></div></div>
+</section>
+<section class="contact" id="contato">
+  <div class="section-header reveal"><h2 class="section-title">Conoce DevUp en tu empresa</h2><p class="section-sub">Agenda una conversación para ver la herramienta, discutir necesidades de ergonomía digital y entender cómo DevUp puede apoyar tus políticas de salud, productividad y compliance.</p></div>
+  <div class="contact-actions reveal reveal-d2"><a href="https://www.joindevup.com/whatsapp-corporativo" class="contact-btn" target="_blank" rel="noopener noreferrer">Agendar una demo</a></div>
+</section>
+<footer><p>© 2026 DevUp. Ergonomía digital y rendimiento sostenible para trabajo en computadoras.</p></footer>
+<script>
+const obs = new IntersectionObserver((entries) => {entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });}, { threshold: 0.15 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {nav.classList.toggle('scrolled', window.scrollY > 60);}, { passive: true });
+</script>
 </body>
 </html>
