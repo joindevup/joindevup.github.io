@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CoDe Conhecimento | Consultoria Enterprise para Engenharia de Software</title>
+<meta name="description" content="Consultoria enterprise para CTOs e equipes de engenharia: arquitetura, MVP, automação, IA com governança e evolução de times (dojos, desafios, capacitação)."/>
+<meta name="theme-color" content="#0b0b0b"/>
+
+<style>
+:root{
+  --bg:#ffffff;
+  --text:#0b0b0b;
+  --muted:#5f5f5f;
+  --line:#e7e7e7;
+  --soft:#f7f7f7;
+
+  /* Ajuste fino depois para ficar 100% alinhado com sua logo */
+  --accent:#22c55e;
+  --accentSoft: rgba(34,197,94,.12);
+
+  --radius:18px;
+  --max:1180px;
+  --shadow: 0 10px 28px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.55;
+}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{width:min(100% - 48px,var(--max));margin:0 auto}
+section{padding:76px 0;border-bottom:1px solid var(--line)}
+h1,h2,h3{letter-spacing:-.5px}
+h1{font-size:clamp(34px,3.6vw,52px);line-height:1.05;margin:12px 0 16px}
+h2{font-size:30px;margin:0 0 12px}
+h3{font-size:18px;margin:0 0 10px}
+.sub{color:var(--muted);margin:0;max-width:85ch}
+
+header{
+  position:sticky;top:0;z-index:10;
+  background:rgba(255,255,255,.92);
+  backdrop-filter: blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:14px;padding:16px 0;
+}
+.brand{display:flex;align-items:center;gap:12px;min-width:280px}
+.brand img{
+  width:40px;height:40px;border-radius:12px;
+  border:1px solid var(--line);object-fit:cover;background:#fff;
+}
+.brand strong{font-size:14px;letter-spacing:.3px}
+.brand small{display:block;font-size:12px;color:var(--muted);margin-top:-2px}
+
+.menu{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:10px 14px;border-radius:12px;
+  border:1px solid var(--line);background:#fff;
+  font-size:14px;cursor:pointer;
+  transition:transform .06s ease, box-shadow .2s ease;
+  white-space:nowrap;
+}
+.btn:hover{box-shadow:var(--shadow);text-decoration:none}
+.btn:active{transform:translateY(1px)}
+.btn.primary{background:var(--text);color:#fff;border-color:var(--text)}
+.btn.accent{background:var(--accent);border-color:transparent;color:#062112;font-weight:800}
+
+.hero{
+  padding:78px 0 54px;
+  background:
+    radial-gradient(900px 520px at 10% 0%, var(--accentSoft), transparent 60%),
+    radial-gradient(950px 580px at 100% 10%, rgba(0,0,0,.04), transparent 55%);
+}
+.heroGrid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:start;
+}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:8px 12px;border-radius:999px;
+  border:1px solid var(--line);background:#fff;color:var(--muted);
+  font-size:13px;
+}
+.dot{width:10px;height:10px;border-radius:999px;background:var(--accent);box-shadow:0 0 0 6px var(--accentSoft)}
+.lead{color:var(--muted);font-size:17px;margin:0 0 18px;max-width:80ch}
+
+.heroBox{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+  padding:22px;
+  box-shadow:var(--shadow);
+}
+.heroBox ul{margin:0;padding-left:18px;color:var(--muted)}
+.heroBox li{margin:7px 0}
+.note{margin-top:12px;font-size:12px;color:var(--muted)}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+.card{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+  padding:20px;
+}
+.card p{margin:0;color:var(--muted)}
+.cardTop{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+}
+.card a.action{
+  display:inline-flex;gap:8px;align-items:center;
+  margin-top:14px;
+  font-weight:800;
+  color:var(--text);
+}
+.chev{display:inline-block;transform:translateY(1px)}
+
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.badge{
+  font-size:12px;padding:6px 10px;border-radius:999px;
+  border:1px solid rgba(34,197,94,.22);
+  background:var(--accentSoft);
+  color:#0e2b18;
+  font-weight:700;
+}
+
+.block{
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  background:#fff;
+  padding:22px;
+}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+
+.list{margin:0;padding-left:18px;color:var(--muted)}
+.list li{margin:7px 0}
+
+.clients{
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:10px;
+  margin-top:20px;
+}
+.client{
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:10px 12px;
+  font-size:13px;
+  color:var(--muted);
+  background:#fff;
+  text-align:center;
+}
+
+.footer{
+  padding:28px 0;
+  color:var(--muted);
+  font-size:13px;
+  border-top:1px solid var(--line);
+}
+
+@media(max-width:1000px){
+  .clients{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:900px){
+  .heroGrid,.cards,.grid2{grid-template-columns:1fr}
+  .clients{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <img src="assets/logo_code.jpeg" alt="Logo CoDe Conhecimento"/>
+      <div>
+        <strong>CoDe Conhecimento</strong>
+        <small>Consultoria Enterprise • Tecnologia e Inovação</small>
+      </div>
+    </div>
+
+    <nav class="menu" aria-label="Menu">
+      <a class="btn" href="#servicos">Serviços</a>
+      <a class="btn" href="#clientes">Clientes</a>
+      <a class="btn" href="#contato">Contato</a>
+      <a class="btn primary" href="#contato">Falar com um consultor</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="topo">
+  <div class="wrap heroGrid">
+    <div>
+      <div class="kicker"><span class="dot" aria-hidden="true"></span> CTO-first • Governança • Execução assistida</div>
+
+      <h1>Consultoria enterprise para CTOs e equipes de engenharia que precisam escalar com segurança.</h1>
+
+      <p class="lead">
+        A CoDe atua em iniciativas críticas de <strong>produto e MVP</strong>, <strong>arquitetura</strong>,
+        <strong>automação</strong>, <strong>IA com governança</strong> e <strong>evolução de times</strong>.
+        Entregamos clareza de trade-offs, redução de risco e transferência de conhecimento.
+      </p>
+
+      <div class="menu" style="gap:10px">
+        <a class="btn primary" href="#servicos">Ver serviços</a>
+        <a class="btn accent" href="#contato">Agendar conversa</a>
+      </div>
+    </div>
+
+    <aside class="heroBox">
+      <h3 style="margin:0 0 12px;">Sinais de que faz sentido conversar</h3>
+      <ul>
+        <li>Arquitetura e integrações viraram gargalo (dívida, acoplamento, retrabalho)</li>
+        <li>MVP não vira produto com previsibilidade e qualidade</li>
+        <li>IA/automação sem governança, segurança e métricas de impacto</li>
+        <li>Crescimento do time com queda de qualidade e retenção</li>
+        <li>Produtividade curta e desgaste longo</li>
+      </ul>
+      <div class="note">Modelo: diagnóstico → plano → execução assistida → sustentação.</div>
+    </aside>
+  </div>
+</section>
+
+<!-- SERVIÇOS (estrutura tipo “cards + ver mais”) -->
+<section id="servicos">
+  <div class="wrap">
+    <div class="head">
+      <h2>Serviços</h2>
+      <p class="sub">Escolha a área para detalhar. Todos os serviços podem ser oferecidos como consultoria e/ou capacitação (workshops, aulas ao vivo e artefatos).</p>
+    </div>
+
+    <div class="cards">
+      <article class="card">
+        <div class="cardTop">
+          <div>
+            <h3>Produto • Prototipagem • MVP</h3>
+            <p>Do conceito ao valor entregue, com base técnica e governança de evolução.</p>
+            <div class="badges">
+              <span class="badge">time-to-value</span>
+              <span class="badge">escopo</span>
+              <span class="badge">qualidade</span>
+            </div>
+          </div>
+        </div>
+        <a class="action" href="#mvp">Ver mais <span class="chev">→</span></a>
+      </article>
+
+      <article class="card">
+        <div class="cardTop">
+          <div>
+            <h3>Arquitetura de Soluções</h3>
+            <p>Decisões técnicas com trade-offs explícitos, plano incremental e critérios de qualidade.</p>
+            <div class="badges">
+              <span class="badge">escala</span>
+              <span class="badge">integrações</span>
+              <span class="badge">observabilidade</span>
+            </div>
+          </div>
+        </div>
+        <a class="action" href="#arquitetura">Ver mais <span class="chev">→</span></a>
+      </article>
+
+      <article class="card">
+        <div class="cardTop">
+          <div>
+            <h3>Automação de Processos</h3>
+            <p>Eficiência operacional com desenho de fluxo, métricas e implementação assistida.</p>
+            <div class="badges">
+              <span class="badge">processos</span>
+              <span class="badge">ROI</span>
+              <span class="badge">padronização</span>
+            </div>
+          </div>
+        </div>
+        <a class="action" href="#automacao">Ver mais <span class="chev">→</span></a>
+      </article>
+
+      <article class="card">
+        <div class="cardTop">
+          <div>
+            <h3>IA no Fluxo (com governança)</h3>
+            <p>Prioriza casos de uso, integra com segurança e mede impacto real no negócio.</p>
+            <div class="badges">
+              <span class="badge">governança</span>
+              <span class="badge">segurança</span>
+              <span class="badge">impacto</span>
+            </div>
+          </div>
+        </div>
+        <a class="action" href="#ia">Ver mais <span class="chev">→</span></a>
+      </article>
+
+      <article class="card">
+        <div class="cardTop">
+          <div>
+            <h3>Seniorização de Equipes</h3>
+            <p>Eleva autonomia, qualidade e previsibilidade — com método, prática e rotinas.</p>
+            <div class="badges">
+              <span class="badge">maturidade</span>
+              <span class="badge">previsibilidade</span>
+              <span class="badge">liderança</span>
+            </div>
+          </div>
+        </div>
+        <a class="action" href="#equipes">Ver mais <span class="chev">→</span></a>
+      </article>
+
+      <article class="card">
+        <div class="cardTop">
+          <div>
+            <h3>Produtividade e Work–Life Balance</h3>
+            <p>Alta performance sustentável para liderança e times — sem burnout.</p>
+            <div class="badges">
+              <span class="badge">sustentável</span>
+              <span class="badge">remoto/híbrido</span>
+              <span class="badge">rituais</span>
+            </div>
+          </div>
+        </div>
+        <a class="action" href="#produtividade">Ver mais <span class="chev">→</span></a>
+      </article>
+    </div>
+
+    <div class="block" style="margin-top:26px;background:var(--soft)">
+      <h3 style="margin:0 0 8px;">Formato de atuação</h3>
+      <p class="sub" style="margin-bottom:12px">
+        Operamos como consultoria enterprise: diagnóstico, plano incremental, execução assistida e sustentação.
+      </p>
+      <div class="grid2">
+        <div>
+          <strong>Entregamos também</strong>
+          <ul class="list">
+            <li>Aulas ao vivo (in-company / online)</li>
+            <li>Materiais e artefatos (playbooks, templates, modelos de decisão)</li>
+            <li>Consultorias in-house</li>
+            <li>Eventos online</li>
+          </ul>
+        </div>
+        <div>
+          <strong>Práticas para times</strong>
+          <ul class="list">
+            <li>Dojos de programação (facilitação e rotina)</li>
+            <li>Clash of CoDes (desafios para evolução)</li>
+            <li>Live CoDe (como um senior conduz um projeto do zero)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DETALHES (os “ver mais” apontam para aqui) -->
+<section id="mvp">
+  <div class="wrap">
+    <div class="head">
+      <h2>Produto • Prototipagem • MVP</h2>
+      <p class="sub">Do problema ao produto: clareza de escopo, base técnica e governança de evolução.</p>
+    </div>
+    <div class="grid2">
+      <div class="block">
+        <h3>O que fazemos</h3>
+        <ul class="list">
+          <li>Discovery técnico e definição de escopo (trade-offs explícitos)</li>
+          <li>Prototipagem funcional para validação</li>
+          <li>MVP com padrões mínimos de qualidade e métricas</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Como entregamos</h3>
+        <ul class="list">
+          <li>Plano incremental de entrega</li>
+          <li>Artefatos: roadmap técnico, riscos, critérios de aceitação</li>
+          <li>Execução assistida com o time</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="arquitetura">
+  <div class="wrap">
+    <div class="head">
+      <h2>Arquitetura de Soluções</h2>
+      <p class="sub">Escala, integrações e confiabilidade — com plano incremental e critérios de qualidade.</p>
+    </div>
+    <div class="grid2">
+      <div class="block">
+        <h3>O que fazemos</h3>
+        <ul class="list">
+          <li>Arquitetura de referência e padrões</li>
+          <li>Integrações, dados e escalabilidade</li>
+          <li>Observabilidade e confiabilidade</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Como entregamos</h3>
+        <ul class="list">
+          <li>Mapa de dependências e riscos</li>
+          <li>Plano incremental de redução de acoplamento / dívida</li>
+          <li>Governança de qualidade (critérios, revisões, práticas)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="automacao">
+  <div class="wrap">
+    <div class="head">
+      <h2>Automação de Processos</h2>
+      <p class="sub">Eficiência com rastreabilidade: desenho de fluxo, implementação assistida e métricas.</p>
+    </div>
+    <div class="grid2">
+      <div class="block">
+        <h3>O que fazemos</h3>
+        <ul class="list">
+          <li>Mapeamento de processos e gargalos</li>
+          <li>Padronização e automação (integrações, rotinas, toolchain)</li>
+          <li>Métricas de impacto (tempo, custo, qualidade)</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Como entregamos</h3>
+        <ul class="list">
+          <li>Backlog priorizado por impacto</li>
+          <li>Artefatos: mapas, padrões, templates</li>
+          <li>Execução assistida com o time</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ia">
+  <div class="wrap">
+    <div class="head">
+      <h2>IA no Fluxo (com governança)</h2>
+      <p class="sub">Casos de uso priorizados, segurança, conformidade e mensuração de impacto.</p>
+    </div>
+    <div class="grid2">
+      <div class="block">
+        <h3>O que fazemos</h3>
+        <ul class="list">
+          <li>Mapeamento e priorização de casos de uso (impacto × risco)</li>
+          <li>Integração de IA no fluxo (processos, produto, engenharia)</li>
+          <li>Governança: dados, segurança, políticas e critérios</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Como entregamos</h3>
+        <ul class="list">
+          <li>Plano por ondas (pilotos → rollout)</li>
+          <li>Artefatos: playbook de uso, políticas, métricas</li>
+          <li>Treinamento e capacitação de liderança e time</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="equipes">
+  <div class="wrap">
+    <div class="head">
+      <h2>Seniorização de Equipes</h2>
+      <p class="sub">Evolução prática: autonomia, qualidade, previsibilidade e cultura de engenharia.</p>
+    </div>
+    <div class="grid2">
+      <div class="block">
+        <h3>O que fazemos</h3>
+        <ul class="list">
+          <li>Diagnóstico de maturidade (time, fluxo, qualidade)</li>
+          <li>Trilhas de desenvolvimento (técnico e profissional)</li>
+          <li>Práticas: dojos, desafios e acompanhamento</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Ativos CoDe</h3>
+        <ul class="list">
+          <li>Dojos de Programação (facilitação e rotina)</li>
+          <li>Clash of CoDes (desafios para evolução)</li>
+          <li>Live CoDe (prática sênior ao vivo)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="produtividade">
+  <div class="wrap">
+    <div class="head">
+      <h2>Produtividade e Work–Life Balance</h2>
+      <p class="sub">Alta performance sustentável para liderança e times — com métodos e rituais.</p>
+    </div>
+    <div class="grid2">
+      <div class="block">
+        <h3>O que fazemos</h3>
+        <ul class="list">
+          <li>Produtividade para lideranças (rotina, foco, decisão)</li>
+          <li>Metodologias para remoto e híbrido</li>
+          <li>Programas de alta performance sem burnout</li>
+        </ul>
+      </div>
+      <div class="block">
+        <h3>Como sustentamos</h3>
+        <ul class="list">
+          <li>Playbooks e artefatos operacionais</li>
+          <li>Aulas ao vivo e workshops</li>
+          <li>Rituais de melhoria contínua (Small Acts)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section id="clientes">
+  <div class="wrap">
+    <div class="head">
+      <h2>Clientes</h2>
+      <p class="sub">Experiência conectada ao mercado. Profissionais e clientes já atuaram em organizações como:</p>
+    </div>
+
+    <!-- Versão enterprise: nomes discretos (pode trocar por logos depois) -->
+    <div class="clients" aria-label="Lista de clientes">
+      <div class="client">Nubank</div>
+      <div class="client">Luizalabs</div>
+      <div class="client">IBM</div>
+      <div class="client">Wikipedia</div>
+      <div class="client">ONU</div>
+      <div class="client">Dasa</div>
+      <div class="client">Global Hitss</div>
+      <div class="client">Cognizant</div>
+      <div class="client">Alura</div>
+      <div class="client">O Boticário</div>
+      <div class="client">RD Station</div>
+      <div class="client">globo.com</div>
+      <div class="client">PrimeIT</div>
+      <div class="client">Capgemini</div>
+      <div class="client">ExxonMobil</div>
+      <div class="client">WEG</div>
+      <div class="client">UOL</div>
+      <div class="client">Impulso</div>
+      <div class="client">Catarse</div>
+      <div class="client">…</div>
+    </div>
+
+    <div class="block" style="margin-top:22px;background:var(--soft)">
+      <h3 style="margin:0 0 8px;">Comunidade</h3>
+      <p class="sub">
+        Organizamos o podcast <strong>Papo de Dev</strong> e o clube do livro <strong>ReadMe</strong> como parte do compromisso com aprendizado contínuo.
+        Somos signatários do <strong>Small Acts Manifesto</strong>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FUNDADORES (enterprise, discreto) -->
+<section id="fundadores">
+  <div class="wrap">
+    <div class="head">
+      <h2>Fundadores</h2>
+      <p class="sub">A CoDe Conhecimento foi fundada por Henrique de Andrade e Pedro Marins.</p>
+    </div>
+
+    <div class="grid2">
+      <div class="block">
+        <h3>Henrique de Andrade</h3>
+        <p class="sub">Atua na interseção entre tecnologia, inovação e desenvolvimento humano, com foco em performance sustentável na era da IA.</p>
+      </div>
+      <div class="block">
+        <h3>Pedro Marins</h3>
+        <p class="sub">Experiência sólida em engenharia de software, arquitetura de sistemas e desenvolvimento de equipes em contextos reais de produto e escala.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO (WhatsApp enterprise) -->
+<section id="contato" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="head">
+      <h2>Contato</h2>
+      <p class="sub">
+        Envie uma mensagem com seu contexto (setor, tamanho do time, desafio atual, prazo e restrições).
+        Retornamos com um caminho recomendado: diagnóstico, plano incremental, execução assistida e sustentação.
+      </p>
+    </div>
+
+    <div class="block">
+      <div class="grid2">
+        <div>
+          <h3>Agendar conversa</h3>
+          <p class="sub">Canal direto via WhatsApp (enterprise-friendly). Substitua <strong>SEUNUMERO</strong> no link.</p>
+        </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;justify-content:flex-start">
+          <a class="btn primary"
+             target="_blank" rel="noopener"
+             href="https://wa.me/SEUNUMERO?text=Olá!%20Sou%20CTO%20(equipe%20de%20engenharia)%20e%20gostaria%20de%20conversar%20sobre%20consultoria%20enterprise%20da%20CoDe.%20Contexto:%20%5Bsetor%5D%20%7C%20Time:%20%5Btamanho%5D%20%7C%20Desafio:%20%5Bresumo%5D%20%7C%20Prazo:%20%5Bdata%5D.">
+            Falar no WhatsApp
+          </a>
+          <a class="btn" href="#servicos">Revisar serviços</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="sub" style="margin-top:14px;font-size:12px">
+      Dica: use um número corporativo dedicado para contatos B2B (evita ruído e melhora follow-up).
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <strong>CoDe Conhecimento</strong><br/>
+    © <span id="year"></span> — Consultoria Enterprise em Tecnologia e Inovação
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

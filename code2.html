@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>CoDe Conhecimento</title>
+<meta name="description" content="Consultoria enterprise em tecnologia e inovação para CTOs e equipes de engenharia.">
+
+<style>
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+
+/* CORE */
+body{
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background:#ffffff;
+  color:#000000;
+  line-height:1.4;
+}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* LAYOUT */
+.wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+section{padding:120px 0;border-bottom:1px solid #e5e5e5}
+
+/* HEADER */
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  background:#fff;
+  border-bottom:1px solid #e5e5e5;
+  z-index:10;
+}
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  height:72px;
+}
+.logo{
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:.3px;
+}
+.menu{
+  display:flex;
+  gap:24px;
+  font-size:14px;
+}
+.menu a{opacity:.75}
+.menu a:hover{opacity:1}
+
+/* HERO */
+.hero{
+  padding-top:200px;
+}
+.hero h1{
+  font-size:clamp(42px,6vw,72px);
+  font-weight:600;
+  letter-spacing:-1.5px;
+  max-width:14ch;
+}
+.hero p{
+  margin-top:32px;
+  font-size:18px;
+  color:#555;
+  max-width:52ch;
+}
+.hero .cta{
+  margin-top:40px;
+  display:inline-block;
+  padding:14px 22px;
+  border:1px solid #000;
+  font-size:14px;
+}
+
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:80px 40px;
+}
+.service h3{
+  font-size:22px;
+  font-weight:500;
+}
+.service p{
+  margin-top:12px;
+  font-size:15px;
+  color:#555;
+  max-width:48ch;
+}
+.service a{
+  display:inline-block;
+  margin-top:20px;
+  font-size:14px;
+}
+
+/* CLIENTS */
+.clients{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  margin-top:40px;
+}
+.client{
+  font-size:14px;
+  color:#666;
+}
+
+/* FOUNDERS */
+.founders{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:80px;
+}
+.founder h3{font-size:20px}
+.founder p{
+  margin-top:12px;
+  color:#555;
+  max-width:50ch;
+}
+
+/* CONTACT */
+.contact a{
+  display:inline-block;
+  margin-top:32px;
+  font-size:16px;
+  border-bottom:1px solid #000;
+}
+
+/* FOOTER */
+footer{
+  padding:60px 0;
+  font-size:13px;
+  color:#666;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .services,.founders{grid-template-columns:1fr}
+  .clients{grid-template-columns:repeat(2,1fr)}
+  section{padding:80px 0}
+  .hero h1{font-size:42px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">CoDe Conhecimento</div>
+    <nav class="menu">
+      <a href="#services">Services</a>
+      <a href="#clients">Clients</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Technology and innovation for teams that need to scale safely.</h1>
+    <p>
+      CoDe is an enterprise consultancy supporting CTOs and engineering teams in
+      product development, architecture, automation, AI governance and sustainable performance.
+    </p>
+    <a class="cta" href="#contact">Talk to us</a>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="services">
+
+      <div class="service">
+        <h3>Product, Prototyping & MVP</h3>
+        <p>From hypothesis to delivery with technical foundations and long-term scalability.</p>
+        <a href="#">Learn more →</a>
+      </div>
+
+      <div class="service">
+        <h3>Architecture & Engineering</h3>
+        <p>Architecture decisions with explicit trade-offs, scalability and reliability.</p>
+        <a href="#">Learn more →</a>
+      </div>
+
+      <div class="service">
+        <h3>Automation & AI Governance</h3>
+        <p>Process automation and AI integration with security, compliance and ROI.</p>
+        <a href="#">Learn more →</a>
+      </div>
+
+      <div class="service">
+        <h3>Engineering Teams & Performance</h3>
+        <p>Seniorization, productivity, remote work and high performance without burnout.</p>
+        <a href="#">Learn more →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="clients">
+  <div class="wrap">
+    <h2>Clients & Experience</h2>
+    <div class="clients">
+      <div class="client">Nubank</div>
+      <div class="client">IBM</div>
+      <div class="client">Capgemini</div>
+      <div class="client">ONU</div>
+      <div class="client">Luizalabs</div>
+      <div class="client">RD Station</div>
+      <div class="client">Globo.com</div>
+      <div class="client">ExxonMobil</div>
+    </div>
+  </div>
+</section>
+
+<section id="founders">
+  <div class="wrap founders">
+    <div class="founder">
+      <h3>Henrique de Andrade</h3>
+      <p>Works at the intersection of technology, innovation and human development, focusing on sustainable high performance in the AI era.</p>
+    </div>
+    <div class="founder">
+      <h3>Pedro Marins</h3>
+      <p>Software engineer with strong experience in systems architecture and high-maturity engineering teams.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p>For CTOs and engineering leaders.</p>
+    <a href="https://wa.me/SEUNUMERO" target="_blank">Start a conversation on WhatsApp →</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> CoDe Conhecimento
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear()
+</script>
+
+</body>
+</html>
